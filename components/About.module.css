@@ -1,0 +1,74 @@
+.section {
+  padding: 140px 48px;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.textCol {
+  min-width: 0;
+}
+
+.eyebrow {
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 20px;
+}
+
+.heading {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(36px, 4vw, 54px);
+  margin: 0 0 28px;
+  line-height: 1.1;
+}
+
+.body {
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  margin: 0 0 22px;
+}
+
+.secondary {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.photoCol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  min-width: 0;
+}
+
+.photo1,
+.photo2 {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--color-bg-alt);
+}
+
+.photo1 {
+  height: 340px;
+  margin-top: 60px;
+}
+
+.photo2 {
+  height: 400px;
+}
+
+.photo1 :global(img),
+.photo2 :global(img) {
+  object-fit: cover;
+}

@@ -1,0 +1,30 @@
+.section {
+  padding: 140px 48px;
+  text-align: center;
+}
+
+.inner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 20px;
+}
+
+.heading {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(32px, 4vw, 48px);
+  margin: 0 0 22px;
+}
+
+.body {
+  font-size: 16px;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}

@@ -1,0 +1,35 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 48px;
+  gap: 20px;
+  flex-wrap: wrap;
+  background: oklch(19% 0.02 140 / 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.logo {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 26px;
+  color: var(--color-text);
+  letter-spacing: 0.02em;
+}
+
+.links {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.link {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-link-muted);
+}

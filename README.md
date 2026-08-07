@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mel McCutcheon — Music Site
 
-## Getting Started
+Next.js (App Router, TypeScript) implementation of the design in
+`design_handoff_mel_mccutcheon_site/`, wired up to TinaCMS for visual,
+click-to-edit content editing.
 
-First, run the development server:
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Site: [http://localhost:3000](http://localhost:3000)
+- Visual editor: [http://localhost:3000/admin](http://localhost:3000/admin)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+`npm run dev` runs Tina's local content server alongside `next dev`. No
+TinaCloud account is required — content is read from and saved directly to
+`content/homepage/home.json` on your filesystem, and images upload to
+`public/uploads/`. Click "Enter Edit Mode" in `/admin` to get the click-to-edit
+overlay on the live site, or use the sidebar form.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Content model
 
-## Learn More
+All editable copy and images live in `content/homepage/home.json`, shaped by
+the schema in `tina/config.ts` (one `homepage` collection, one document). This
+covers nav, hero, about, music, events, gallery, shop, and contact/footer —
+matching the sections in the original design handoff.
 
-To learn more about Next.js, take a look at the following resources:
+## Photos
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The hero, about, and gallery images currently use band/performance photos
+found in the project folder (none are final promotional photography). Swap
+them any time via the visual editor's image fields, or by replacing files in
+`public/uploads/`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Production builds
 
-## Deploy on Vercel
+`npm run build` runs `tinacms build` (in local/self-hosted mode) followed by
+`next build`; the homepage route renders dynamically (`export const dynamic =
+"force-dynamic"`) rather than being statically prerendered, since its content
+comes from Tina's content API rather than being baked in at build time.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Local mode's GraphQL server (`tinacms dev` / `tinacms build`) is intended for
+development, not for serving production traffic long-term. Before deploying
+for real:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Recommended:** connect the project to [TinaCloud](https://tina.io) (free
+  tier available) and set `NEXT_PUBLIC_TINA_CLIENT_ID` and `TINA_TOKEN` — this
+  gives you a persistent hosted content API and the same visual editor in
+  production, with no extra infrastructure to run yourself.
+- **Alternative:** self-host the content API with `@tinacms/datalayer` behind
+  a Next.js route handler, so `next start` doesn't depend on a separate
+  process. Not set up in this project yet — ask if you want it added.
+
+## Files
+
+- `tina/config.ts` — Tina schema (collections, fields).
+- `content/homepage/home.json` — the actual page content.
+- `app/page.tsx` / `app/page-client.tsx` — fetches content and wires up
+  `useTina` for live visual editing.
+- `components/` — one file per page section (`Nav`, `Hero`, `About`, `Music`,
+  `Events`, `Gallery`, `Shop`, `Contact`, `Footer`), each reading its slice of
+  the content data.

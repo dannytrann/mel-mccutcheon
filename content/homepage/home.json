@@ -1,0 +1,76 @@
+{
+  "siteMeta": {
+    "artistName": "Mel McCutcheon",
+    "logoText": "Mel McCutcheon"
+  },
+  "navLinks": [
+    { "label": "About", "href": "#about" },
+    { "label": "Music", "href": "#music" },
+    { "label": "Events", "href": "#events" },
+    { "label": "Gallery", "href": "#gallery" },
+    { "label": "Shop", "href": "#shop" },
+    { "label": "Contact", "href": "#contact" }
+  ],
+  "hero": {
+    "photo": "/uploads/hero-mel-singing.jpg",
+    "eyebrow": "Jazz Vocalist",
+    "heading": "Mel\nMcCutcheon",
+    "tagline": "Singing silky smooth, sweet, and sometimes a wee bit sticky — forest sister uprooted and self-sown, making music to lift, lighten, ignite and inspire.",
+    "ctaLabel": "Listen Now",
+    "ctaHref": "#music"
+  },
+  "socials": [
+    { "name": "Instagram", "href": "https://instagram.com/melmccutcheonmusic" },
+    { "name": "Spotify", "href": "#" },
+    { "name": "YouTube", "href": "#" },
+    { "name": "Facebook", "href": "#" }
+  ],
+  "about": {
+    "eyebrow": "About",
+    "heading": "A voice like late-night forest air",
+    "bodyText": "Singing silky smooth, sweet, and sometimes a wee bit sticky — forest sister uprooted and self-sown, making music to lift, lighten, ignite and inspire.",
+    "secondaryText": "Full biography coming soon — press quotes, collaborators, and career highlights will live here.",
+    "photo1": "/uploads/about-mel-portrait-closeup.jpeg",
+    "photo2": "/uploads/about-mel-onstage.jpg"
+  },
+  "music": {
+    "eyebrow": "Music",
+    "heading": "Latest Release",
+    "albumArt": "",
+    "songTitle": "Song title — coming soon",
+    "caption": "Streaming links go live at release.",
+    "platforms": [
+      { "name": "Spotify", "href": "#" },
+      { "name": "Apple Music", "href": "#" },
+      { "name": "YouTube", "href": "#" },
+      { "name": "Bandcamp", "href": "#" }
+    ]
+  },
+  "events": [
+    { "day": "TBA", "month": "2026", "venue": "Venue name", "city": "City, Province", "rsvpHref": "#", "ticketsHref": "#" },
+    { "day": "TBA", "month": "2026", "venue": "Venue name", "city": "City, Province", "rsvpHref": "#", "ticketsHref": "#" },
+    { "day": "TBA", "month": "2026", "venue": "Venue name", "city": "City, Province", "rsvpHref": "#", "ticketsHref": "#" }
+  ],
+  "gallery": [
+    { "image": "/uploads/gallery-band-group-color.jpg", "spanCols": 2, "spanRows": 2 },
+    { "image": "/uploads/about-mel-onstage.jpg", "spanCols": 1, "spanRows": 1 },
+    { "image": "/uploads/about-mel-portrait-closeup.jpeg", "spanCols": 1, "spanRows": 1 },
+    { "image": "/uploads/hero-mel-singing.jpg", "spanCols": 1, "spanRows": 2 },
+    { "image": "/uploads/gallery-band-group-bw.jpeg", "spanCols": 1, "spanRows": 1 },
+    { "image": "/uploads/gallery-live-performance-wide.jpg", "spanCols": 2, "spanRows": 1 }
+  ],
+  "shop": {
+    "eyebrow": "Shop",
+    "heading": "Records coming soon",
+    "bodyText": "Vinyl and merch will be available here once released. Sign up below to hear first."
+  },
+  "contact": {
+    "eyebrow": "Contact & Booking",
+    "heading": "Get in touch",
+    "label": "Booking & general inquiries",
+    "email": "booking@melmccutcheonmusic.com"
+  },
+  "footer": {
+    "copyrightText": "© 2026 Mel McCutcheon. All rights reserved."
+  }
+}

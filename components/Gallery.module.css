@@ -1,0 +1,41 @@
+.section {
+  padding: 120px 48px;
+  background: var(--color-bg-alt);
+}
+
+.inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 20px;
+}
+
+.heading {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(36px, 4vw, 54px);
+  margin: 0 0 60px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 220px;
+  gap: 16px;
+}
+
+.item {
+  position: relative;
+  min-width: 0;
+  background: var(--color-bg);
+}
+
+.item :global(img) {
+  object-fit: cover;
+}
