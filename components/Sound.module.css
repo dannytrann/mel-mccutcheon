@@ -1,0 +1,86 @@
+.section {
+  padding: 6rem 0;
+  border-top: 1px solid var(--color-line);
+}
+
+.wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.inner {
+  max-width: 70ch;
+}
+
+.eyebrow {
+  font-family: var(--font-caps);
+  font-size: 0.82rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-brass);
+  margin-bottom: 0.9rem;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(2.1rem, 4.4vw, 3.4rem);
+  line-height: 0.95;
+  color: var(--color-text);
+  text-wrap: balance;
+  margin-bottom: 2rem;
+}
+
+.body {
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+}
+
+.influenceRow {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2.2rem;
+  flex-wrap: wrap;
+}
+
+.influence {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  color: var(--color-brass-bright);
+}
+
+.influenceDivider {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  color: var(--color-text-faint);
+}
+
+.quote {
+  margin-top: 3rem;
+  padding-top: 2.4rem;
+  border-top: 1px solid var(--color-line);
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: clamp(1.6rem, 3.2vw, 2.3rem);
+  line-height: 1.15;
+  color: var(--color-text);
+}
+
+.quoteCite {
+  display: block;
+  font-family: var(--font-caps);
+  font-style: normal;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  color: var(--color-text-faint);
+  margin-top: 1rem;
+  font-weight: 600;
+}

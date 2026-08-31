@@ -5,35 +5,44 @@ import styles from "./About.module.css";
 
 export default function About({ data }: { data: HomepageData }) {
   const about = data.about;
+  const headingLines = (about?.heading ?? "").split("\n");
 
   return (
     <section id="about" className={styles.section}>
-      <div className={styles.textCol}>
-        <div className={styles.eyebrow} data-tina-field={tinaField(about, "eyebrow")}>
-          {about?.eyebrow}
+      <div className={styles.wrap}>
+        <div>
+          <div className={styles.eyebrow} data-tina-field={tinaField(about, "eyebrow")}>
+            {about?.eyebrow}
+          </div>
+          <h2 className={styles.heading} data-tina-field={tinaField(about, "heading")}>
+            {headingLines.map((line, i) => (
+              <span key={i}>
+                {line}
+                {i < headingLines.length - 1 && <br />}
+              </span>
+            ))}
+          </h2>
+          <p className={styles.lead} data-tina-field={tinaField(about, "leadText")}>
+            {about?.leadText}
+          </p>
+          {about?.paragraphs?.map((paragraph, i) => (
+            <p
+              key={i}
+              className={styles.paragraph}
+              data-tina-field={tinaField(about, "paragraphs", i)}
+            >
+              {paragraph}
+            </p>
+          ))}
         </div>
-        <h2 className={styles.heading} data-tina-field={tinaField(about, "heading")}>
-          {about?.heading}
-        </h2>
-        <p className={styles.body} data-tina-field={tinaField(about, "bodyText")}>
-          {about?.bodyText}
-        </p>
-        <p
-          className={styles.secondary}
-          data-tina-field={tinaField(about, "secondaryText")}
-        >
-          {about?.secondaryText}
-        </p>
-      </div>
-      <div className={styles.photoCol}>
-        <div className={styles.photo1} data-tina-field={tinaField(about, "photo1")}>
-          {about?.photo1 && (
-            <Image src={about.photo1} alt="Portrait photo" fill sizes="(max-width: 860px) 50vw, 320px" />
-          )}
-        </div>
-        <div className={styles.photo2} data-tina-field={tinaField(about, "photo2")}>
-          {about?.photo2 && (
-            <Image src={about.photo2} alt="Performance photo" fill sizes="(max-width: 860px) 50vw, 320px" />
+        <div className={styles.photo} data-tina-field={tinaField(about, "photo")}>
+          {about?.photo && (
+            <Image
+              src={about.photo}
+              alt="Mel McCutcheon"
+              fill
+              sizes="(max-width: 800px) 100vw, 50vw"
+            />
           )}
         </div>
       </div>

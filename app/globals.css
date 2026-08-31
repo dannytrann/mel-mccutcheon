@@ -1,18 +1,16 @@
 :root {
-  --color-bg: oklch(14% 0.015 140);
-  --color-bg-alt: oklch(19% 0.02 140);
-  --color-border: oklch(32% 0.02 140);
-  --color-border-soft: oklch(40% 0.02 140);
-  --color-text: oklch(95% 0.012 90);
-  --color-text-secondary: oklch(90% 0.012 90);
-  --color-text-muted: oklch(72% 0.02 100);
-  --color-text-faint: oklch(55% 0.02 100);
-  --color-gold: oklch(74% 0.12 75);
-  --color-gold-hover: oklch(85% 0.1 75);
-  --color-link-muted: oklch(85% 0.012 90);
+  --color-bg: #060605;
+  --color-bg-alt: #0f0e0c;
+  --color-line: #2a2823;
+  --color-brass: #a97f3f;
+  --color-brass-bright: #c99b56;
+  --color-text: #eae5db;
+  --color-text-muted: #a49b8a;
+  --color-text-faint: #6d6656;
 
-  --font-serif: var(--font-cormorant), "Cormorant Garamond", serif;
-  --font-sans: var(--font-jost), "Jost", sans-serif;
+  --font-display: "Big Shoulders Display", "Arial Narrow", sans-serif;
+  --font-caps: "Big Shoulders Text", "Arial Narrow", sans-serif;
+  --font-body: var(--font-archivo), Helvetica, Arial, sans-serif;
 
   color-scheme: dark;
 }
@@ -36,19 +34,36 @@ html {
 body {
   background: var(--color-bg);
   color: var(--color-text);
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
-  color: var(--color-gold);
+  color: var(--color-brass-bright);
   text-decoration: none;
-}
-
-a:hover {
-  color: var(--color-gold-hover);
 }
 
 img {
   display: block;
   max-width: 100%;
+}
+
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
 }

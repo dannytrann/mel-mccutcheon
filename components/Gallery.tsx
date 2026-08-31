@@ -6,18 +6,14 @@ import styles from "./Gallery.module.css";
 export default function Gallery({ data }: { data: HomepageData }) {
   return (
     <section id="gallery" className={styles.section}>
-      <div className={styles.inner}>
+      <div className={styles.wrap}>
         <div className={styles.eyebrow}>Gallery</div>
         <h2 className={styles.heading}>On Stage &amp; Off</h2>
         <div className={styles.grid}>
           {data.gallery?.map((item, i) => (
             <div
               key={i}
-              className={styles.item}
-              style={{
-                gridColumn: `span ${item?.spanCols ?? 1}`,
-                gridRow: `span ${item?.spanRows ?? 1}`,
-              }}
+              className={`${styles.item} ${item?.big ? styles.big : ""}`}
               data-tina-field={tinaField(item, "image")}
             >
               {item?.image && (
@@ -25,7 +21,7 @@ export default function Gallery({ data }: { data: HomepageData }) {
                   src={item.image}
                   alt="Gallery photo"
                   fill
-                  sizes="(max-width: 860px) 50vw, 320px"
+                  sizes="(max-width: 800px) 50vw, 25vw"
                 />
               )}
             </div>

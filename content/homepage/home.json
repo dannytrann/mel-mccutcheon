@@ -1,74 +1,103 @@
 {
   "siteMeta": {
     "artistName": "Mel McCutcheon",
-    "logoText": "Mel McCutcheon"
+    "logoText": "McCutcheon"
   },
   "navLinks": [
     { "label": "About", "href": "#about" },
-    { "label": "Music", "href": "#music" },
-    { "label": "Events", "href": "#events" },
+    { "label": "Sound", "href": "#sound" },
+    { "label": "Ensembles", "href": "#ensembles" },
+    { "label": "Shows", "href": "#shows" },
     { "label": "Gallery", "href": "#gallery" },
-    { "label": "Shop", "href": "#shop" },
-    { "label": "Contact", "href": "#contact" }
+    { "label": "Booking", "href": "#contact" }
   ],
   "hero": {
     "photo": "/uploads/hero-mel-singing.jpg",
-    "eyebrow": "Jazz Vocalist",
+    "kicker": "Jazz Vocalist · Vancouver Island",
     "heading": "Mel\nMcCutcheon",
-    "tagline": "Singing silky smooth, sweet, and sometimes a wee bit sticky — forest sister uprooted and self-sown, making music to lift, lighten, ignite and inspire.",
-    "ctaLabel": "Listen Now",
-    "ctaHref": "#music"
+    "tagline": "Forest sister uprooted and self-sown, making music to lift, lighten, ignite and inspire.",
+    "ctaPrimaryLabel": "Recent Performances",
+    "ctaPrimaryHref": "#shows",
+    "ctaSecondaryLabel": "Instagram",
+    "ctaSecondaryHref": "https://instagram.com/melmccutcheonmusic"
   },
-  "socials": [
-    { "name": "Instagram", "href": "https://instagram.com/melmccutcheonmusic" },
-    { "name": "Spotify", "href": "#" },
-    { "name": "YouTube", "href": "#" },
-    { "name": "Facebook", "href": "#" }
-  ],
   "about": {
     "eyebrow": "About",
-    "heading": "A voice like late-night forest air",
-    "bodyText": "Singing silky smooth, sweet, and sometimes a wee bit sticky — forest sister uprooted and self-sown, making music to lift, lighten, ignite and inspire.",
-    "secondaryText": "Full biography coming soon — press quotes, collaborators, and career highlights will live here.",
-    "photo1": "/uploads/about-mel-portrait-closeup.jpeg",
-    "photo2": "/uploads/about-mel-onstage.jpg"
+    "heading": "A Voice For\nThe Late Set",
+    "leadText": "Singing silky smooth, sweet, and sometimes a wee bit sticky.",
+    "paragraphs": [
+      "Based on Vancouver Island, Mel McCutcheon has become a fixture of the region's jazz rooms — a voice that moves easily between the warmth of a big band and the intimacy of a quartet.",
+      "She currently fronts three different Vancouver Island ensembles, each built for a different room, a different band, the same unmistakable voice."
+    ],
+    "photo": "/uploads/about-mel-portrait-closeup.jpeg"
   },
-  "music": {
-    "eyebrow": "Music",
-    "heading": "Latest Release",
-    "albumArt": "",
-    "songTitle": "Song title — coming soon",
-    "caption": "Streaming links go live at release.",
-    "platforms": [
-      { "name": "Spotify", "href": "#" },
-      { "name": "Apple Music", "href": "#" },
-      { "name": "YouTube", "href": "#" },
-      { "name": "Bandcamp", "href": "#" }
+  "sound": {
+    "eyebrow": "Sound & Style",
+    "heading": "Standards, Swing\n& A Little Smoke",
+    "bodyText": "Timeless jazz standards, swinging favourites, Latin grooves and imaginative new arrangements — songs made famous by Sinatra, Bobby Darin and the golden age of jazz.",
+    "influences": ["Sarah Vaughan", "Nina Simone"],
+    "quoteText": "\"Polished, relaxed and full of energy.\"",
+    "quoteCite": "— City of Courtenay"
+  },
+  "ensembles": {
+    "eyebrow": "Ensembles",
+    "heading": "Three Bands.\nOne Voice.",
+    "items": [
+      {
+        "name": "The Sharp Seven",
+        "description": "Big-band jazz with Paul Nuez, Grahame Edwards, Michelle Draper, Jack Reynolds, Beau Stocker and Dave Lymburner. Built for a dance floor."
+      },
+      {
+        "name": "Mel McCutcheon Quartet",
+        "description": "A smaller combo for intimate rooms and private events — most recently the Hearts for Hospice benefit."
+      },
+      {
+        "name": "Vintage Velvet",
+        "description": "A quintet built around Mel's soulful, Vaughan- and Simone-inflected side. Late nights, low light."
+      }
     ]
   },
-  "events": [
-    { "day": "TBA", "month": "2026", "venue": "Venue name", "city": "City, Province", "rsvpHref": "#", "ticketsHref": "#" },
-    { "day": "TBA", "month": "2026", "venue": "Venue name", "city": "City, Province", "rsvpHref": "#", "ticketsHref": "#" },
-    { "day": "TBA", "month": "2026", "venue": "Venue name", "city": "City, Province", "rsvpHref": "#", "ticketsHref": "#" }
-  ],
-  "gallery": [
-    { "image": "/uploads/gallery-band-group-color.jpg", "spanCols": 2, "spanRows": 2 },
-    { "image": "/uploads/about-mel-onstage.jpg", "spanCols": 1, "spanRows": 1 },
-    { "image": "/uploads/about-mel-portrait-closeup.jpeg", "spanCols": 1, "spanRows": 1 },
-    { "image": "/uploads/hero-mel-singing.jpg", "spanCols": 1, "spanRows": 2 },
-    { "image": "/uploads/gallery-band-group-bw.jpeg", "spanCols": 1, "spanRows": 1 },
-    { "image": "/uploads/gallery-live-performance-wide.jpg", "spanCols": 2, "spanRows": 1 }
-  ],
-  "shop": {
-    "eyebrow": "Shop",
-    "heading": "Records coming soon",
-    "bodyText": "Vinyl and merch will be available here once released. Sign up below to hear first."
+  "shows": {
+    "eyebrow": "Recently On Stage",
+    "heading": "Where You've\nHeard Her",
+    "items": [
+      {
+        "venue": "Simms Millennium Park",
+        "detail": ", Courtenay — with The Sharp Seven",
+        "tag": "Simms Summer Concerts"
+      },
+      {
+        "venue": "Comox Marina",
+        "detail": ", Comox — with The Sharp Seven",
+        "tag": "Nautical Days"
+      },
+      {
+        "venue": "Spirit Square",
+        "detail": ", Campbell River — with The Sharp Seven",
+        "tag": "Spirit Square River Concerts"
+      },
+      {
+        "venue": "Anchor Inn Discovery Deck",
+        "detail": " — with Vintage Velvet",
+        "tag": "Hwy 19 Jazz & Blues Fest"
+      }
+    ],
+    "noteText": "For the current schedule, follow ",
+    "noteLinkLabel": "@melmccutcheonmusic",
+    "noteLinkHref": "https://instagram.com/melmccutcheonmusic"
   },
+  "gallery": [
+    { "image": "/uploads/gallery-live-performance-wide.jpg", "big": true },
+    { "image": "/uploads/about-mel-portrait-closeup.jpeg", "big": false },
+    { "image": "/uploads/gallery-band-group-bw.jpeg", "big": false },
+    { "image": "/uploads/gallery-band-group-color.jpg", "big": false },
+    { "image": "/uploads/about-mel-onstage.jpg", "big": false }
+  ],
   "contact": {
-    "eyebrow": "Contact & Booking",
-    "heading": "Get in touch",
-    "label": "Booking & general inquiries",
-    "email": "booking@melmccutcheonmusic.com"
+    "eyebrow": "Booking",
+    "email": "booking@melmccutcheonmusic.com",
+    "socialLabel": "Instagram →",
+    "socialHref": "https://instagram.com/melmccutcheonmusic"
   },
   "footer": {
     "copyrightText": "© 2026 Mel McCutcheon. All rights reserved."

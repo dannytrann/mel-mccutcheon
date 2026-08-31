@@ -7,34 +7,26 @@ export default function Contact({ data }: { data: HomepageData }) {
 
   return (
     <section id="contact" className={styles.section}>
-      <div className={styles.inner}>
+      <div className={styles.wrap}>
         <div className={styles.eyebrow} data-tina-field={tinaField(contact, "eyebrow")}>
           {contact?.eyebrow}
         </div>
-        <h2 className={styles.heading} data-tina-field={tinaField(contact, "heading")}>
-          {contact?.heading}
-        </h2>
-        <p className={styles.label} data-tina-field={tinaField(contact, "label")}>
-          {contact?.label}
-        </p>
-        <a
-          href={`mailto:${contact?.email ?? ""}`}
-          className={styles.email}
-          data-tina-field={tinaField(contact, "email")}
-        >
-          {contact?.email}
-        </a>
-        <div className={styles.socials}>
-          {data.socials?.map((s, i) => (
+        <div className={styles.inner}>
+          <a
+            href={`mailto:${contact?.email ?? ""}`}
+            className={styles.email}
+            data-tina-field={tinaField(contact, "email")}
+          >
+            {contact?.email}
+          </a>
+          <div className={styles.social}>
             <a
-              key={i}
-              href={s?.href ?? "#"}
-              className={styles.socialLink}
-              data-tina-field={tinaField(s, "name")}
+              href={contact?.socialHref ?? "#"}
+              data-tina-field={tinaField(contact, "socialLabel")}
             >
-              {s?.name}
+              {contact?.socialLabel}
             </a>
-          ))}
+          </div>
         </div>
       </div>
     </section>

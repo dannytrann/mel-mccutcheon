@@ -1,74 +1,63 @@
 .section {
-  padding: 140px 48px;
-  max-width: 1280px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
+  padding: 6rem 0;
+  border-top: 1px solid var(--color-line);
 }
 
-.textCol {
-  min-width: 0;
+.wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: start;
 }
 
 .eyebrow {
-  font-size: 13px;
-  letter-spacing: 0.2em;
+  font-family: var(--font-caps);
+  font-size: 0.82rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--color-gold);
-  margin-bottom: 20px;
+  color: var(--color-brass);
+  margin-bottom: 0.9rem;
 }
 
 .heading {
-  font-family: var(--font-serif);
-  font-weight: 500;
-  font-size: clamp(36px, 4vw, 54px);
-  margin: 0 0 28px;
-  line-height: 1.1;
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(2.1rem, 4.4vw, 3.4rem);
+  line-height: 0.95;
+  color: var(--color-text);
+  text-wrap: balance;
+  margin-bottom: 2rem;
 }
 
-.body {
-  font-size: 17px;
-  line-height: 1.8;
-  color: var(--color-text-secondary);
-  margin: 0 0 22px;
+.lead {
+  color: var(--color-text);
+  font-size: 1.2rem;
+  margin-bottom: 1.1rem;
 }
 
-.secondary {
-  font-size: 15px;
-  line-height: 1.8;
+.paragraph {
   color: var(--color-text-muted);
-  margin: 0;
+  margin-bottom: 1.1rem;
+  font-size: 1.02rem;
 }
 
-.photoCol {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  min-width: 0;
-}
-
-.photo1,
-.photo2 {
+.photo {
   position: relative;
-  width: 100%;
-  min-width: 0;
-  border-radius: 6px;
+  aspect-ratio: 3 / 4;
   overflow: hidden;
-  background: var(--color-bg-alt);
 }
 
-.photo1 {
-  height: 340px;
-  margin-top: 60px;
-}
-
-.photo2 {
-  height: 400px;
-}
-
-.photo1 :global(img),
-.photo2 :global(img) {
+.photo :global(img) {
   object-fit: cover;
+  filter: grayscale(1) contrast(1.15) brightness(0.88);
+}
+
+@media (max-width: 800px) {
+  .wrap {
+    grid-template-columns: 1fr;
+  }
 }
