@@ -1,8 +1,9 @@
 # Mel McCutcheon — Music Site
 
-Next.js (App Router, TypeScript) implementation of the design in
-`design_handoff_mel_mccutcheon_site/`, wired up to TinaCMS for visual,
-click-to-edit content editing.
+Next.js (App Router, TypeScript) implementation of the "Noir Smoke & Brass"
+design concept (one of several concepts explored at
+`mel-mccutcheon-concepts.vercel.app`, picked by Mel), wired up to TinaCMS for
+visual, click-to-edit content editing.
 
 ## Getting started
 
@@ -26,14 +27,15 @@ new files under `public/uploads/`) so the deployed site picks up the change.
 
 All editable copy and images live in `content/homepage/home.json`, shaped by
 the schema in `tina/config.ts` (one `homepage` collection, one document). This
-covers nav, hero, about, music, events, gallery, shop, and contact/footer —
-matching the sections in the original design handoff.
+covers nav, hero, about, sound & style, ensembles, shows, gallery, and
+booking/footer — matching the sections in the "Noir Smoke & Brass" concept.
 
 ## Photos
 
-The hero, about, and gallery images currently use band/performance photos
-found in the project folder (none are final promotional photography). Swap
-them any time via the visual editor's image fields, or by replacing files in
+The hero, about, and gallery images use photography from the same shoot
+throughout (credited to Robert Ellis / Roshine Photography in the source
+files' EXIF data), grayscale-filtered in CSS to match the design. Swap them
+any time via the visual editor's image fields, or by replacing files in
 `public/uploads/`.
 
 ## How content is served
