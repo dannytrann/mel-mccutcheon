@@ -6,13 +6,18 @@ const branch =
   process.env.HEAD ||
   "main";
 
+// Only embed TinaCloud credentials when TINA_CLOUD_ENABLED=true is set
+// explicitly. Merely having NEXT_PUBLIC_TINA_CLIENT_ID/TINA_TOKEN present
+// (e.g. left over in an env file) is not enough — without this gate, the
+// built admin app silently switches to a TinaCloud "Log in" screen even
+// when the build itself still targets local/self-hosted mode, which is
+// confusing and, if TinaCloud isn't actually working, a dead end.
+const useTinaCloud = process.env.TINA_CLOUD_ENABLED === "true";
+
 export default defineConfig({
   branch,
-  // Local-mode credentials. Unset in local dev (self-hosted, no TinaCloud
-  // account needed). Set these env vars if/when this is connected to
-  // TinaCloud for production editing.
-  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || null,
-  token: process.env.TINA_TOKEN || null,
+  clientId: useTinaCloud ? process.env.NEXT_PUBLIC_TINA_CLIENT_ID || null : null,
+  token: useTinaCloud ? process.env.TINA_TOKEN || null : null,
 
   build: {
     publicFolder: "public",
