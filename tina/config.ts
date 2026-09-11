@@ -1,4 +1,5 @@
-import { defineConfig } from "tinacms";
+import { defineConfig, LocalAuthProvider } from "tinacms";
+import { UsernamePasswordAuthJSProvider, TinaUserCollection } from "tinacms-authjs/dist/tinacms";
 
 const branch =
   process.env.GITHUB_BRANCH ||
@@ -6,18 +7,18 @@ const branch =
   process.env.HEAD ||
   "main";
 
-// Only embed TinaCloud credentials when TINA_CLOUD_ENABLED=true is set
-// explicitly. Merely having NEXT_PUBLIC_TINA_CLIENT_ID/TINA_TOKEN present
-// (e.g. left over in an env file) is not enough — without this gate, the
-// built admin app silently switches to a TinaCloud "Log in" screen even
-// when the build itself still targets local/self-hosted mode, which is
-// confusing and, if TinaCloud isn't actually working, a dead end.
-const useTinaCloud = process.env.TINA_CLOUD_ENABLED === "true";
+// Self-hosted, not TinaCloud: `npm run dev` sets TINA_PUBLIC_IS_LOCAL=true,
+// which routes around the real content API (tina/database.ts) and around
+// real auth (Auth.js) entirely, matching how local mode always worked.
+// Everywhere else, /api/tina/[...routes] (backed by tina/database.ts) is
+// the content API, and login goes through a real per-user Auth.js account
+// (see content/users/) rather than a shared password.
+const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === "true";
 
 export default defineConfig({
+  contentApiUrlOverride: "/api/tina/gql",
+  authProvider: isLocal ? new LocalAuthProvider() : new UsernamePasswordAuthJSProvider(),
   branch,
-  clientId: useTinaCloud ? process.env.NEXT_PUBLIC_TINA_CLIENT_ID || null : null,
-  token: useTinaCloud ? process.env.TINA_TOKEN || null : null,
 
   build: {
     publicFolder: "public",
@@ -32,6 +33,7 @@ export default defineConfig({
 
   schema: {
     collections: [
+      TinaUserCollection,
       {
         name: "homepage",
         label: "Home Page",

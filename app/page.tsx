@@ -1,4 +1,4 @@
-import client from "@/tina/__generated__/client";
+import client from "@/tina/__generated__/databaseClient";
 import PageClient from "./page-client";
 import PageStatic from "./page-static";
 import fallbackData from "@/content/homepage/home.json";
@@ -6,17 +6,23 @@ import type { HomepageData } from "@/lib/tina-types";
 
 type HomepageResult = Awaited<ReturnType<typeof client.queries.homepage>>;
 
-// Prefer live content from Tina's content API (local dev server, or
-// TinaCloud/self-hosted in production once configured) so editors get
-// real-time visual editing. If no content API is reachable — e.g. a plain
-// Vercel deploy with no Tina backend wired up yet — fall back to the
-// content file bundled at build time, so the public site always renders.
+// Render per-request rather than pre-rendering at build time. The query
+// itself is fast (~500ms, verified directly) but Next's build-time static
+// generation wraps fetch() with its own caching/dedup machinery that
+// resolve()'s many underlying Upstash REST calls don't play well with —
+// reliably times out after 60s during `next build`, even though the exact
+// same call completes quickly as a live request outside that code path.
+export const dynamic = "force-dynamic";
+
+// databaseClient resolves directly against tina/database.ts (in-process,
+// no network round trip) rather than an HTTP content API, so this succeeds
+// or throws immediately — no fetch timeout needed. Still wrapped in a
+// try/catch: if the self-hosted backend is misconfigured or a dependency
+// (GitHub, Redis) is briefly unavailable, the public site should still
+// render from the content bundled at build time rather than 500.
 async function fetchHomepage(): Promise<HomepageResult | null> {
   try {
-    return await client.queries.homepage(
-      { relativePath: "home.json" },
-      { fetchOptions: { signal: AbortSignal.timeout(3000) } }
-    );
+    return await client.queries.homepage({ relativePath: "home.json" });
   } catch {
     return null;
   }
@@ -33,7 +39,12 @@ export default async function Page() {
     <PageClient
       query={result.query}
       variables={result.variables}
-      data={result.data}
+      // databaseClient resolves in-process (unlike the old HTTP client,
+      // which implicitly flattened everything to plain JSON via
+      // Response.json()), so its result can carry non-plain values a
+      // Server → Client Component boundary rejects. Round-tripping through
+      // JSON strips those, same as an HTTP response would have.
+      data={JSON.parse(JSON.stringify(result.data))}
     />
   );
 }
