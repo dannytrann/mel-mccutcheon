@@ -24,12 +24,24 @@ export default defineConfig({
     publicFolder: "public",
     outputFolder: "admin",
   },
-  media: {
-    tina: {
-      publicFolder: "public",
-      mediaRoot: "uploads",
-    },
-  },
+  // Local mode still writes uploads straight to the filesystem (fine —
+  // there's a real, persistent local repo checkout to write into). Every
+  // other environment needs an external media store instead: Vercel's
+  // serverless functions have no persistent/writable filesystem for
+  // self-hosted Tina to commit uploaded media into the way TinaCloud can.
+  media: isLocal
+    ? {
+        tina: {
+          publicFolder: "public",
+          mediaRoot: "uploads",
+        },
+      }
+    : {
+        loadCustomStore: async () => {
+          const pack = await import("next-tinacms-cloudinary");
+          return pack.TinaCloudCloudinaryMediaStore;
+        },
+      },
 
   schema: {
     collections: [
