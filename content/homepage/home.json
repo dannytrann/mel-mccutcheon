@@ -4,15 +4,33 @@
     "logoText": "McCutcheon"
   },
   "navLinks": [
-    { "label": "About", "href": "#about" },
-    { "label": "Sound", "href": "#sound" },
-    { "label": "Ensembles", "href": "#ensembles" },
-    { "label": "Shows", "href": "#shows" },
-    { "label": "Gallery", "href": "#gallery" },
-    { "label": "Booking", "href": "#contact" }
+    {
+      "label": "About",
+      "href": "#about"
+    },
+    {
+      "label": "Sound",
+      "href": "#sound"
+    },
+    {
+      "label": "Ensembles",
+      "href": "#ensembles"
+    },
+    {
+      "label": "Shows",
+      "href": "#shows"
+    },
+    {
+      "label": "Gallery",
+      "href": "#gallery"
+    },
+    {
+      "label": "Booking",
+      "href": "#contact"
+    }
   ],
   "hero": {
-    "photo": "/uploads/hero-mel-singing.jpg",
+    "photo": "https://res.cloudinary.com/tpugvsad/image/upload/v1789225207/main-sample.png",
     "kicker": "Jazz Vocalist · Vancouver Island",
     "heading": "Mel\nMcCutcheon",
     "tagline": "Forest sister uprooted and self-sown, making music to lift, lighten, ignite and inspire.",
@@ -35,7 +53,10 @@
     "eyebrow": "Sound & Style",
     "heading": "Standards, Swing\n& A Little Smoke",
     "bodyText": "Timeless jazz standards, swinging favourites, Latin grooves and imaginative new arrangements — songs made famous by Sinatra, Bobby Darin and the golden age of jazz.",
-    "influences": ["Sarah Vaughan", "Nina Simone"],
+    "influences": [
+      "Sarah Vaughan",
+      "Nina Simone"
+    ],
     "quoteText": "\"Polished, relaxed and full of energy.\"",
     "quoteCite": "— City of Courtenay"
   },
@@ -87,11 +108,26 @@
     "noteLinkHref": "https://instagram.com/melmccutcheonmusic"
   },
   "gallery": [
-    { "image": "/uploads/gallery-live-performance-wide.jpg", "big": true },
-    { "image": "/uploads/about-mel-portrait-closeup.jpeg", "big": false },
-    { "image": "/uploads/gallery-band-group-bw.jpeg", "big": false },
-    { "image": "/uploads/gallery-band-group-color.jpg", "big": false },
-    { "image": "/uploads/about-mel-onstage.jpg", "big": false }
+    {
+      "image": "/uploads/gallery-live-performance-wide.jpg",
+      "big": true
+    },
+    {
+      "image": "/uploads/about-mel-portrait-closeup.jpeg",
+      "big": false
+    },
+    {
+      "image": "/uploads/gallery-band-group-bw.jpeg",
+      "big": false
+    },
+    {
+      "image": "/uploads/gallery-band-group-color.jpg",
+      "big": false
+    },
+    {
+      "image": "/uploads/about-mel-onstage.jpg",
+      "big": false
+    }
   ],
   "contact": {
     "eyebrow": "Booking",
