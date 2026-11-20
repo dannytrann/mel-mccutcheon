@@ -62,6 +62,128 @@
   white-space: nowrap;
 }
 
+.subheading {
+  font-family: var(--font-caps);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+  margin: 2.4rem 0 0.4rem;
+}
+
+.upcomingList {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--color-line);
+}
+
+.upcomingRow {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.4rem 0;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.poster {
+  position: relative;
+  flex: 0 0 auto;
+  width: 88px;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 1px solid var(--color-line);
+}
+
+.poster img {
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.poster:hover img {
+  transform: scale(1.05);
+}
+
+.date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 3.5rem;
+}
+
+.day {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 2.4rem;
+  line-height: 1;
+  color: var(--color-text);
+}
+
+.month {
+  font-family: var(--font-caps);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-brass);
+}
+
+.info {
+  flex: 1;
+  min-width: 0;
+}
+
+.showTitle {
+  font-family: var(--font-caps);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-brass);
+  margin-bottom: 0.3rem;
+}
+
+.meta {
+  margin-top: 0.3rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.pill {
+  font-family: var(--font-caps);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  border: 1px solid var(--color-brass);
+  padding: 0.5rem 1.1rem;
+  white-space: nowrap;
+}
+
+.pill:hover {
+  background: var(--color-brass);
+  color: var(--color-bg);
+}
+
+@media (max-width: 640px) {
+  .upcomingRow {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .info {
+    flex-basis: calc(100% - 88px - 3.5rem - 3rem);
+  }
+
+  .actions {
+    flex-basis: 100%;
+  }
+}
+
 .note {
   margin-top: 2.2rem;
   color: var(--color-text-muted);

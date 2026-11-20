@@ -79,8 +79,48 @@
     ]
   },
   "shows": {
-    "eyebrow": "Recently On Stage",
+    "eyebrow": "On Stage",
     "heading": "Where You've\nHeard Her",
+    "upcomingHeading": "Upcoming",
+    "upcoming": [
+      {
+        "day": "06",
+        "month": "Dec",
+        "title": "The Sharp Seven — Holiday Show & New Album Premiere",
+        "venue": "Fanny Bay Hall",
+        "detail": "7793 Island Hwy S, Fanny Bay",
+        "time": "Sunday, 2:00 PM",
+        "price": "$35 cash advance · $38 online or at the door",
+        "poster": "/uploads/event-2026-12-06-sharp-seven-fanny-bay.jpg",
+        "detailsHref": "https://www.instagram.com/melmccutcheonmusic/p/DfSA0usuHYP/",
+        "ticketsHref": "https://fannybayhall.tickit.ca"
+      },
+      {
+        "day": "10",
+        "month": "Dec",
+        "title": "Jazz Night — Swingin' Christmas",
+        "venue": "The Mex Pub & Grill",
+        "detail": "1001 Ryan Rd, Courtenay",
+        "time": "Thursday, 6–8 PM",
+        "price": "Suggested donation $5–$20",
+        "poster": "/uploads/event-2026-12-10-swingin-christmas-the-mex.jpg",
+        "detailsHref": "https://www.instagram.com/melmccutcheonmusic/p/Df8WwIjsOLw/",
+        "ticketsHref": ""
+      },
+      {
+        "day": "31",
+        "month": "Dec",
+        "title": "New York New Year's Eve — Mel McCutcheon Jazz Quartet",
+        "venue": "Crown Isle Resort",
+        "detail": "Courtenay",
+        "time": "Thursday · Doors 5:30 PM, dinner 6:30 PM",
+        "price": "$100 pp + tax & gratuity",
+        "poster": "/uploads/event-2026-12-31-new-years-crown-isle.jpg",
+        "detailsHref": "https://www.instagram.com/melmccutcheonmusic/p/Dfterq_OTRs/",
+        "ticketsHref": "https://crownisle.com"
+      }
+    ],
+    "recentHeading": "Recently",
     "items": [
       {
         "venue": "Simms Millennium Park",

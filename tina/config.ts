@@ -198,6 +198,32 @@ export default defineConfig({
                 name: "heading",
                 label: "Heading (use a line break for the second line)",
               },
+              { type: "string", name: "upcomingHeading", label: "Upcoming Shows Subheading" },
+              {
+                type: "object",
+                name: "upcoming",
+                label: "Upcoming Shows",
+                list: true,
+                ui: {
+                  itemProps: (item) => ({
+                    label: item?.venue ? `${item.month ?? ""} ${item.day ?? ""} — ${item.venue}` : "New Show",
+                  }),
+                  defaultItem: { day: "", month: "", venue: "Venue name" },
+                },
+                fields: [
+                  { type: "string", name: "day", label: "Day (e.g. 06)" },
+                  { type: "string", name: "month", label: "Month (e.g. Dec)" },
+                  { type: "string", name: "title", label: "Show Title" },
+                  { type: "string", name: "venue", label: "Venue" },
+                  { type: "string", name: "detail", label: "Address / City" },
+                  { type: "string", name: "time", label: "Day & Time" },
+                  { type: "string", name: "price", label: "Price / Admission" },
+                  { type: "image", name: "poster", label: "Poster" },
+                  { type: "string", name: "detailsHref", label: "Details Link (blank hides button)" },
+                  { type: "string", name: "ticketsHref", label: "Tickets Link (blank hides button)" },
+                ],
+              },
+              { type: "string", name: "recentHeading", label: "Recent Shows Subheading" },
               {
                 type: "object",
                 name: "items",
