@@ -130,33 +130,6 @@ export default defineConfig({
           },
           {
             type: "object",
-            name: "sound",
-            label: "Sound & Style",
-            fields: [
-              { type: "string", name: "eyebrow", label: "Eyebrow" },
-              {
-                type: "string",
-                name: "heading",
-                label: "Heading (use a line break for the second line)",
-              },
-              {
-                type: "string",
-                name: "bodyText",
-                label: "Body Text",
-                ui: { component: "textarea" },
-              },
-              {
-                type: "string",
-                name: "influences",
-                label: "Influences",
-                list: true,
-              },
-              { type: "string", name: "quoteText", label: "Quote" },
-              { type: "string", name: "quoteCite", label: "Quote Attribution" },
-            ],
-          },
-          {
-            type: "object",
             name: "ensembles",
             label: "Ensembles",
             fields: [
@@ -275,6 +248,41 @@ export default defineConfig({
               },
               { type: "string", name: "noteLinkLabel", label: "Note link label" },
               { type: "string", name: "noteLinkHref", label: "Note link href" },
+            ],
+          },
+          {
+            type: "object",
+            name: "reviews",
+            label: "Reviews",
+            fields: [
+              { type: "string", name: "eyebrow", label: "Eyebrow" },
+              {
+                type: "string",
+                name: "heading",
+                label: "Heading (use a line break for the second line)",
+              },
+              {
+                type: "object",
+                name: "items",
+                label: "Reviews (first one is featured large)",
+                list: true,
+                ui: {
+                  itemProps: (item) => ({ label: item?.name || "New Review" }),
+                  defaultItem: { quote: "", name: "", context: "" },
+                },
+                fields: [
+                  {
+                    type: "string",
+                    name: "quote",
+                    label: "Quote",
+                    ui: { component: "textarea" },
+                  },
+                  { type: "string", name: "name", label: "Reviewer Name" },
+                  { type: "string", name: "context", label: "Context (e.g. show or source)" },
+                ],
+              },
+              { type: "string", name: "linkLabel", label: "More Reviews Link Label" },
+              { type: "string", name: "linkHref", label: "More Reviews Link URL" },
             ],
           },
           {

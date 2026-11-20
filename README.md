@@ -27,7 +27,7 @@ new files under `public/uploads/`) so the deployed site picks up the change.
 
 All editable copy and images live in `content/homepage/home.json`, shaped by
 the schema in `tina/config.ts` (one `homepage` collection, one document). This
-covers nav, hero, about, sound & style, ensembles, shows, gallery, and
+covers nav, hero, about, ensembles, shows, reviews, gallery, and
 booking/footer — matching the sections in the "Noir Smoke & Brass" concept.
 
 ## Photos

@@ -9,16 +9,16 @@
       "href": "#about"
     },
     {
-      "label": "Sound",
-      "href": "#sound"
-    },
-    {
       "label": "Ensembles",
       "href": "#ensembles"
     },
     {
       "label": "Shows",
       "href": "#shows"
+    },
+    {
+      "label": "Reviews",
+      "href": "#reviews"
     },
     {
       "label": "Gallery",
@@ -48,17 +48,6 @@
       "She currently fronts three different Vancouver Island ensembles, each built for a different room, a different band, the same unmistakable voice."
     ],
     "photo": "https://res.cloudinary.com/tpugvsad/image/upload/v1789514201/753170041_10175000342655201_6905816441516426856_n_wwtszl.jpg"
-  },
-  "sound": {
-    "eyebrow": "Sound & Style",
-    "heading": "Standards, Swing\n& A Little Smoke",
-    "bodyText": "Timeless jazz standards, swinging favourites, Latin grooves and imaginative new arrangements — songs made famous by Sinatra, Bobby Darin and the golden age of jazz.",
-    "influences": [
-      "Sarah Vaughan",
-      "Nina Simone"
-    ],
-    "quoteText": "\"Polished, relaxed and full of energy.\"",
-    "quoteCite": "— City of Courtenay"
   },
   "ensembles": {
     "eyebrow": "Ensembles",
@@ -209,6 +198,44 @@
     "noteText": "For the current schedule, follow ",
     "noteLinkLabel": "@melmccutcheonmusic",
     "noteLinkHref": "https://instagram.com/melmccutcheonmusic"
+  },
+  "reviews": {
+    "eyebrow": "Reviews",
+    "heading": "What Audiences\nAre Saying",
+    "items": [
+      {
+        "quote": "And then came The Mel McCutcheon Quartet — absolutely incredible. A timeless journey from start to finish. The four of them play so well together. Mel herself is magnetic. Her beauty is the first thing you notice, but it’s her warmth, her wit, and the passion behind her voice that keeps you captivated. She doesn’t just sing — she tells a story, and you feel every word.",
+        "name": "Tamsyn",
+        "context": "Facebook review"
+      },
+      {
+        "quote": "Mel McCutcheon’s voice was absolutely stunning, rich with emotion and clarity, floating effortlessly above the room. The guitar, bass, and drums complemented her perfectly, each musician adding depth and texture while weaving together a sound that wrapped around the audience like a comforting embrace. It was an afternoon of pure musical artistry and heart.",
+        "name": "Kristi W.",
+        "context": "Facebook review"
+      },
+      {
+        "quote": "The music was absolutely amazing, and Mel’s performance was outstanding. She brought so much energy and heart to the stage. The entire show was beautifully done from start to finish. It was a memorable experience, and we’re so glad we were there. Highly recommend!",
+        "name": "Ofri L.",
+        "context": "Facebook review"
+      },
+      {
+        "quote": "Polished, relaxed and full of energy.",
+        "name": "City of Courtenay",
+        "context": ""
+      },
+      {
+        "quote": "Very enjoyable event at Painters Lodge with Beau Stocker and Co. Mel’s vocals and her backup were excellent… nothing compares with years of experience working together!",
+        "name": "Cherri O.",
+        "context": "Painters Lodge · Facebook review"
+      },
+      {
+        "quote": "We enjoyed a fabulous lunch at Painters Lodge with swinging Jazz accompaniment by The Sharp Seven group of very talented musicians. What a lovely setting for this great event on Valentine’s Day!",
+        "name": "Kelly S.",
+        "context": "Painters Lodge, Valentine’s Day · Facebook review"
+      }
+    ],
+    "linkLabel": "Read more reviews on Facebook",
+    "linkHref": "https://www.facebook.com/BlackbirdProductionsvanisle/reviews"
   },
   "gallery": [
     {
