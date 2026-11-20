@@ -13,8 +13,33 @@
 
 .photoWrap :global(img) {
   object-fit: cover;
-  object-position: 70% 30%;
+  object-position: center 30%;
   filter: contrast(1.05) brightness(0.88);
+}
+
+/* Slideshow: slides stack and crossfade; the active one slowly zooms. */
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.8s ease-in-out;
+}
+
+.slideActive {
+  opacity: 1;
+}
+
+@keyframes heroZoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.07);
+  }
+}
+
+.slideActive :global(img) {
+  animation: heroZoom 9s ease-out forwards;
 }
 
 .photoWrap::after {
@@ -134,7 +159,7 @@
   }
 }
 
-.photoWrap :global(img) {
+.photoWrap {
   animation: heroFade 1.8s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
@@ -159,8 +184,16 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .photoWrap :global(img),
+  .photoWrap,
   .copy > * {
+    animation: none;
+  }
+
+  .slide {
+    transition: none;
+  }
+
+  .slideActive :global(img) {
     animation: none;
   }
 }

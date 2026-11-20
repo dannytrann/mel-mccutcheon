@@ -87,7 +87,24 @@ export default defineConfig({
             name: "hero",
             label: "Hero",
             fields: [
-              { type: "image", name: "photo", label: "Photo" },
+              { type: "image", name: "photo", label: "Photo (used when the slideshow is empty)" },
+              {
+                type: "object",
+                name: "slides",
+                label: "Slideshow Photos (crossfade in order)",
+                list: true,
+                ui: {
+                  itemProps: (item) => ({ label: item?.image?.split("/").pop() || "New Photo" }),
+                },
+                fields: [
+                  { type: "image", name: "image", label: "Photo" },
+                  {
+                    type: "string",
+                    name: "position",
+                    label: "Focus point (CSS object-position, e.g. \"60% 30%\"; blank = centre)",
+                  },
+                ],
+              },
               { type: "string", name: "kicker", label: "Kicker (small line above title)" },
               {
                 type: "string",
