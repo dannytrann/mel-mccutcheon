@@ -13,8 +13,8 @@
 
 .photoWrap :global(img) {
   object-fit: cover;
-  object-position: center 20%;
-  filter: grayscale(1) contrast(1.22) brightness(0.82);
+  object-position: 70% 30%;
+  filter: contrast(1.05) brightness(0.88);
 }
 
 .photoWrap::after {
