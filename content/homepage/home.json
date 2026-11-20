@@ -120,7 +120,70 @@
         "ticketsHref": "https://crownisle.com"
       }
     ],
-    "recentHeading": "Recently",
+    "pastHeading": "Past Shows",
+    "past": [
+      {
+        "day": "12",
+        "month": "Nov",
+        "title": "Jazz Night — The Sharp 7",
+        "venue": "The Mex Pub & Grill",
+        "detail": "Courtenay",
+        "time": "Thursday, 6–8 PM",
+        "price": "",
+        "poster": "/uploads/event-2026-11-12-sharp-seven-the-mex.jpg",
+        "detailsHref": "https://www.instagram.com/melmccutcheonmusic/reel/DerjiqXOehi/",
+        "ticketsHref": ""
+      },
+      {
+        "day": "14",
+        "month": "Oct",
+        "title": "Mel McCutcheon Jazz Quartet",
+        "venue": "Heritage House Pub",
+        "detail": "",
+        "time": "6–8 PM · with Beau Stocker, Drake Shoemaker & Eli Swift",
+        "price": "",
+        "poster": "/uploads/event-2026-10-14-jazz-quartet-heritage-house.jpg",
+        "detailsHref": "https://www.instagram.com/melmccutcheonmusic/p/Ddk9CnMu6Z2/",
+        "ticketsHref": ""
+      },
+      {
+        "day": "10",
+        "month": "Sep",
+        "title": "Jazz Night — Beau Stocker & Friends",
+        "venue": "The Mex Pub & Grill",
+        "detail": "Courtenay",
+        "time": "Thursday, 6–8 PM",
+        "price": "",
+        "poster": "/uploads/event-2026-09-10-beau-stocker-friends-the-mex.jpg",
+        "detailsHref": "https://www.instagram.com/melmccutcheonmusic/p/Dc4naeGuszy/",
+        "ticketsHref": ""
+      },
+      {
+        "day": "07",
+        "month": "Aug",
+        "title": "Spirit Square River Concerts — The Sharp Seven",
+        "venue": "Spirit Square",
+        "detail": "Campbell River",
+        "time": "Friday, 7 PM",
+        "price": "",
+        "poster": "/uploads/event-2026-08-07-sharp-seven-spirit-square.jpg",
+        "detailsHref": "https://www.instagram.com/melmccutcheonmusic/p/DbjPT7Ny3Y1/",
+        "ticketsHref": ""
+      },
+      {
+        "day": "03",
+        "month": "Aug",
+        "title": "Nautical Days — The Sharp Seven",
+        "venue": "Comox Valley Marina",
+        "detail": "Comox",
+        "time": "Monday, 4:45 PM",
+        "price": "",
+        "poster": "/uploads/event-2026-08-03-sharp-seven-nautical-days.jpg",
+        "detailsHref": "https://www.instagram.com/melmccutcheonmusic/reel/DbTpfg7uIIu/",
+        "ticketsHref": ""
+      }
+    ],
+    "recentHeading": "Festivals & Concert Series",
     "items": [
       {
         "venue": "Simms Millennium Park",

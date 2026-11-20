@@ -3,18 +3,9 @@ import { tinaField } from "tinacms/dist/react";
 import type { HomepageData } from "@/lib/tina-types";
 import styles from "./Hero.module.css";
 
-// The design treats the surname's "Mc" prefix as plain text and the rest
-// as the brass accent color (e.g. "Mc" + "Cutcheon"). Falls back to
-// rendering the line plain if it doesn't fit that "Mc"-prefixed shape.
+// The last line of the heading (the surname) renders in the brass accent color.
 function renderAccentLine(line: string) {
-  if (line.startsWith("Mc") && line.length > 2) {
-    return (
-      <>
-        Mc<span className={styles.titleAccent}>{line.slice(2)}</span>
-      </>
-    );
-  }
-  return line;
+  return <span className={styles.titleAccent}>{line}</span>;
 }
 
 export default function Hero({ data }: { data: HomepageData }) {
