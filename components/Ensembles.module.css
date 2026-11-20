@@ -60,3 +60,40 @@
     grid-template-columns: 1fr;
   }
 }
+
+.photo {
+  position: relative;
+  display: block;
+  aspect-ratio: 3 / 2;
+  margin: -2.4rem -2rem 1.8rem;
+  overflow: hidden;
+  cursor: zoom-in;
+}
+
+.photo :global(img) {
+  object-fit: cover;
+  filter: brightness(0.9);
+  transition:
+    filter 0.4s,
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.photo:hover :global(img) {
+  filter: brightness(1);
+  transform: scale(1.03);
+}
+
+.photoPlaceholder {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 3 / 2;
+  margin: -2.4rem -2rem 1.8rem;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(169, 127, 63, 0.22), transparent 65%),
+    var(--color-bg-alt);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 4.5rem;
+  letter-spacing: 0.04em;
+  color: rgba(201, 155, 86, 0.35);
+}

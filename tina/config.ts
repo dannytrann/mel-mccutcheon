@@ -166,6 +166,7 @@ export default defineConfig({
                   defaultItem: { name: "New Ensemble", description: "" },
                 },
                 fields: [
+                  { type: "image", name: "photo", label: "Photo (optional)" },
                   { type: "string", name: "name", label: "Name" },
                   {
                     type: "string",

@@ -33,6 +33,10 @@
     "photo": "/uploads/mel-hand-raised-warm-light.jpg",
     "slides": [
       {
+        "image": "/uploads/mel-arms-outstretched.jpg",
+        "position": "72% 30%"
+      },
+      {
         "image": "/uploads/mel-hand-raised-warm-light.jpg",
         "position": "70% 30%"
       },
@@ -76,10 +80,12 @@
     "heading": "Three Bands.\nOne Voice.",
     "items": [
       {
+        "photo": "/uploads/gallery-live-performance-wide.jpg",
         "name": "The Sharp Seven",
         "description": "Big-band jazz with Paul Nuez, Grahame Edwards, Michelle Draper, Jack Reynolds, Beau Stocker and Dave Lymburner. Built for a dance floor."
       },
       {
+        "photo": "/uploads/quartet-blue-stage-wide.jpg",
         "name": "Mel McCutcheon Quartet",
         "description": "A smaller combo for intimate rooms and private events — most recently the Hearts for Hospice benefit."
       },
@@ -278,6 +284,26 @@
     },
     {
       "image": "/uploads/gallery-band-group-bw.jpeg",
+      "big": false
+    },
+    {
+      "image": "/uploads/sharp-seven-simms-pavilion.jpg",
+      "big": true
+    },
+    {
+      "image": "/uploads/quartet-blue-stage-mel.jpg",
+      "big": false
+    },
+    {
+      "image": "/uploads/mel-arms-outstretched.jpg",
+      "big": false
+    },
+    {
+      "image": "/uploads/mel-hand-raised-warm-light.jpg",
+      "big": false
+    },
+    {
+      "image": "/uploads/quartet-blue-stage-wide.jpg",
       "big": false
     }
   ],
