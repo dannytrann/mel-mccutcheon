@@ -16,8 +16,7 @@ function ShowRow({ ev }: { ev: ShowItem }) {
       {ev.poster ? (
         <a
           href={ev.poster}
-          target="_blank"
-          rel="noopener noreferrer"
+          data-lightbox="posters"
           className={styles.poster}
           data-tina-field={tinaField(ev, "poster")}
           aria-label={`View poster for ${ev.title ?? ev.venue ?? "this show"}`}

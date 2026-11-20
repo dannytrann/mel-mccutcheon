@@ -11,10 +11,13 @@ export default function Gallery({ data }: { data: HomepageData }) {
         <h2 className={styles.heading}>On Stage &amp; Off</h2>
         <div className={styles.grid}>
           {data.gallery?.map((item, i) => (
-            <div
+            <a
               key={i}
+              href={item?.image ?? undefined}
+              data-lightbox="gallery"
               className={`${styles.item} ${item?.big ? styles.big : ""}`}
               data-tina-field={tinaField(item, "image")}
+              aria-label="View photo"
             >
               {item?.image && (
                 <Image
@@ -24,7 +27,7 @@ export default function Gallery({ data }: { data: HomepageData }) {
                   sizes="(max-width: 800px) 50vw, 25vw"
                 />
               )}
-            </div>
+            </a>
           ))}
         </div>
       </div>

@@ -8,6 +8,8 @@ import Reviews from "./Reviews";
 import Gallery from "./Gallery";
 import Contact from "./Contact";
 import Footer from "./Footer";
+import ScrollReveal from "./ScrollReveal";
+import Lightbox from "./Lightbox";
 
 export default function HomePage({ data }: { data: HomepageData }) {
   return (
@@ -22,6 +24,8 @@ export default function HomePage({ data }: { data: HomepageData }) {
       <Gallery data={data} />
       <Contact data={data} />
       <Footer data={data} />
+      <ScrollReveal />
+      <Lightbox />
     </div>
   );
 }

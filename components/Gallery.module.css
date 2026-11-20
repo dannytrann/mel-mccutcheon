@@ -67,3 +67,8 @@
     grid-row: span 1;
   }
 }
+
+.item {
+  display: block;
+  cursor: zoom-in;
+}
