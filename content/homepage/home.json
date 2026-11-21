@@ -5,27 +5,23 @@
   },
   "navLinks": [
     {
-      "label": "About",
+      "label": "Home",
+      "href": "#home"
+    },
+    {
+      "label": "About Me",
       "href": "#about"
     },
     {
-      "label": "Ensembles",
+      "label": "Music & Performances",
       "href": "#ensembles"
     },
     {
-      "label": "Shows",
-      "href": "#shows"
-    },
-    {
-      "label": "Reviews",
+      "label": "Blackbird Productions",
       "href": "#reviews"
     },
     {
-      "label": "Gallery",
-      "href": "#gallery"
-    },
-    {
-      "label": "Booking",
+      "label": "Contact",
       "href": "#contact"
     }
   ],
@@ -229,7 +225,7 @@
     "noteLinkHref": "https://instagram.com/melmccutcheonmusic"
   },
   "reviews": {
-    "eyebrow": "Reviews",
+    "eyebrow": "Blackbird Productions",
     "heading": "What Audiences\nAre Saying",
     "items": [
       {
