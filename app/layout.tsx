@@ -12,7 +12,7 @@ const archivo = Archivo({
 export const metadata: Metadata = {
   title: "Mel McCutcheon | Jazz Vocalist",
   description:
-    "Mel McCutcheon — jazz vocalist on Vancouver Island. Singing silky smooth, sweet, and sometimes a wee bit sticky.",
+    "Mel McCutcheon, jazz vocalist on Vancouver Island. Singing silky smooth, sweet, and sometimes a wee bit sticky.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

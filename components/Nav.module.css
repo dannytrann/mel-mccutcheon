@@ -3,6 +3,8 @@
   top: 0;
   z-index: 20;
   background: rgba(6, 6, 5, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--color-line);
 }
 
@@ -10,14 +12,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.1rem 2rem;
+  padding: 0.6rem 2rem;
   max-width: 1180px;
   margin: 0 auto;
 }
 
 .logo {
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   font-weight: 800;

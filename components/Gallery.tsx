@@ -7,8 +7,8 @@ export default function Gallery({ data }: { data: HomepageData }) {
   return (
     <section id="gallery" className={styles.section}>
       <div className={styles.wrap}>
-        <div className={styles.eyebrow}>Gallery</div>
-        <h2 className={styles.heading}>On Stage &amp; Off</h2>
+        <div className={styles.eyebrow}>Photos</div>
+        <h2 className={styles.heading}>Gallery</h2>
         <div className={styles.grid}>
           {data.gallery?.map((item, i) => (
             <a

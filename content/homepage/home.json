@@ -1,7 +1,7 @@
 {
   "siteMeta": {
     "artistName": "Mel McCutcheon",
-    "logoText": "McCutcheon"
+    "logoText": "Mel McCutcheon"
   },
   "navLinks": [
     {
@@ -66,7 +66,7 @@
     "heading": "A Voice For\nThe Late Set",
     "leadText": "Singing silky smooth, sweet, and sometimes a wee bit sticky.",
     "paragraphs": [
-      "Based on Vancouver Island, Mel McCutcheon has become a fixture of the region's jazz rooms — a voice that moves easily between the warmth of a big band and the intimacy of a quartet.",
+      "Based on Vancouver Island, Mel McCutcheon has become a fixture of the region's jazz rooms, a voice that moves easily between the warmth of a big band and the intimacy of a quartet.",
       "She currently fronts three different Vancouver Island ensembles, each built for a different room, a different band, the same unmistakable voice."
     ],
     "photo": "/uploads/mel-profile-bw.jpg"
@@ -93,14 +93,14 @@
     ]
   },
   "shows": {
-    "eyebrow": "On Stage",
-    "heading": "Where You've\nHeard Her",
+    "eyebrow": "Performances",
+    "heading": "Catch Her\nLive",
     "upcomingHeading": "Upcoming",
     "upcoming": [
       {
         "day": "06",
         "month": "Dec",
-        "title": "The Sharp Seven — Holiday Show & New Album Premiere",
+        "title": "The Sharp Seven: Holiday Show & New Album Premiere",
         "venue": "Fanny Bay Hall",
         "detail": "7793 Island Hwy S, Fanny Bay",
         "time": "Sunday, 2:00 PM",
@@ -112,7 +112,7 @@
       {
         "day": "10",
         "month": "Dec",
-        "title": "Jazz Night — Swingin' Christmas",
+        "title": "Jazz Night: Swingin' Christmas",
         "venue": "The Mex Pub & Grill",
         "detail": "1001 Ryan Rd, Courtenay",
         "time": "Thursday, 6–8 PM",
@@ -124,7 +124,7 @@
       {
         "day": "31",
         "month": "Dec",
-        "title": "New York New Year's Eve — Mel McCutcheon Jazz Quartet",
+        "title": "New York New Year's Eve: Mel McCutcheon Jazz Quartet",
         "venue": "Crown Isle Resort",
         "detail": "Courtenay",
         "time": "Thursday · Doors 5:30 PM, dinner 6:30 PM",
@@ -139,7 +139,7 @@
       {
         "day": "12",
         "month": "Nov",
-        "title": "Jazz Night — The Sharp 7",
+        "title": "Jazz Night: The Sharp 7",
         "venue": "The Mex Pub & Grill",
         "detail": "Courtenay",
         "time": "Thursday, 6–8 PM",
@@ -163,7 +163,7 @@
       {
         "day": "10",
         "month": "Sep",
-        "title": "Jazz Night — Beau Stocker & Friends",
+        "title": "Jazz Night: Beau Stocker & Friends",
         "venue": "The Mex Pub & Grill",
         "detail": "Courtenay",
         "time": "Thursday, 6–8 PM",
@@ -175,7 +175,7 @@
       {
         "day": "07",
         "month": "Aug",
-        "title": "Spirit Square River Concerts — The Sharp Seven",
+        "title": "Spirit Square River Concerts: The Sharp Seven",
         "venue": "Spirit Square",
         "detail": "Campbell River",
         "time": "Friday, 7 PM",
@@ -187,7 +187,7 @@
       {
         "day": "03",
         "month": "Aug",
-        "title": "Nautical Days — The Sharp Seven",
+        "title": "Nautical Days: The Sharp Seven",
         "venue": "Comox Valley Marina",
         "detail": "Comox",
         "time": "Monday, 4:45 PM",
@@ -197,29 +197,8 @@
         "ticketsHref": ""
       }
     ],
-    "recentHeading": "Festivals & Concert Series",
-    "items": [
-      {
-        "venue": "Simms Millennium Park",
-        "detail": ", Courtenay — with The Sharp Seven",
-        "tag": "Simms Summer Concerts"
-      },
-      {
-        "venue": "Comox Marina",
-        "detail": ", Comox — with The Sharp Seven",
-        "tag": "Nautical Days"
-      },
-      {
-        "venue": "Spirit Square",
-        "detail": ", Campbell River — with The Sharp Seven",
-        "tag": "Spirit Square River Concerts"
-      },
-      {
-        "venue": "Anchor Inn Discovery Deck",
-        "detail": " — with Vintage Velvet",
-        "tag": "Hwy 19 Jazz & Blues Fest"
-      }
-    ],
+    "recentHeading": "",
+    "items": [],
     "noteText": "For the current schedule, follow ",
     "noteLinkLabel": "@melmccutcheonmusic",
     "noteLinkHref": "https://instagram.com/melmccutcheonmusic"
@@ -229,19 +208,19 @@
     "heading": "What Audiences\nAre Saying",
     "items": [
       {
-        "quote": "And then came The Mel McCutcheon Quartet — absolutely incredible. A timeless journey from start to finish. The four of them play so well together. Mel herself is magnetic. Her beauty is the first thing you notice, but it’s her warmth, her wit, and the passion behind her voice that keeps you captivated. She doesn’t just sing — she tells a story, and you feel every word.",
+        "quote": "And then came The Mel McCutcheon Quartet. Absolutely incredible. A timeless journey from start to finish. The four of them play so well together. Mel herself is magnetic. Her beauty is the first thing you notice, but it’s her warmth, her wit, and the passion behind her voice that keeps you captivated. She doesn’t just sing, she tells a story, and you feel every word.",
         "name": "Tamsyn",
-        "context": "Facebook review"
+        "context": ""
       },
       {
         "quote": "Mel McCutcheon’s voice was absolutely stunning, rich with emotion and clarity, floating effortlessly above the room. The guitar, bass, and drums complemented her perfectly, each musician adding depth and texture while weaving together a sound that wrapped around the audience like a comforting embrace. It was an afternoon of pure musical artistry and heart.",
         "name": "Kristi W.",
-        "context": "Facebook review"
+        "context": ""
       },
       {
         "quote": "The music was absolutely amazing, and Mel’s performance was outstanding. She brought so much energy and heart to the stage. The entire show was beautifully done from start to finish. It was a memorable experience, and we’re so glad we were there. Highly recommend!",
         "name": "Ofri L.",
-        "context": "Facebook review"
+        "context": ""
       },
       {
         "quote": "Polished, relaxed and full of energy.",
@@ -251,12 +230,12 @@
       {
         "quote": "Very enjoyable event at Painters Lodge with Beau Stocker and Co. Mel’s vocals and her backup were excellent… nothing compares with years of experience working together!",
         "name": "Cherri O.",
-        "context": "Painters Lodge · Facebook review"
+        "context": "Painters Lodge"
       },
       {
         "quote": "We enjoyed a fabulous lunch at Painters Lodge with swinging Jazz accompaniment by The Sharp Seven group of very talented musicians. What a lovely setting for this great event on Valentine’s Day!",
         "name": "Kelly S.",
-        "context": "Painters Lodge, Valentine’s Day · Facebook review"
+        "context": "Painters Lodge, Valentine’s Day"
       }
     ],
     "linkLabel": "Read more reviews on Facebook",
@@ -272,6 +251,10 @@
       "big": false
     },
     {
+      "image": "/uploads/gallery-band-group-bw.jpeg",
+      "big": false
+    },
+    {
       "image": "/uploads/mel-purple-stage-light.jpg",
       "big": false
     },
@@ -280,7 +263,11 @@
       "big": false
     },
     {
-      "image": "/uploads/gallery-band-group-bw.jpeg",
+      "image": "/uploads/quartet-blue-stage-mel.jpg",
+      "big": false
+    },
+    {
+      "image": "/uploads/mel-hand-raised-warm-light.jpg",
       "big": false
     },
     {
@@ -288,15 +275,7 @@
       "big": true
     },
     {
-      "image": "/uploads/quartet-blue-stage-mel.jpg",
-      "big": false
-    },
-    {
       "image": "/uploads/mel-arms-outstretched.jpg",
-      "big": false
-    },
-    {
-      "image": "/uploads/mel-hand-raised-warm-light.jpg",
       "big": false
     },
     {

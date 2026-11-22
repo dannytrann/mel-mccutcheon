@@ -9,7 +9,7 @@ function Cite({ review }: { review: Review }) {
   if (!review.name && !review.context) return null;
   return (
     <cite className={styles.cite}>
-      {review.name ? <span data-tina-field={tinaField(review, "name")}>— {review.name}</span> : null}
+      {review.name ? <span data-tina-field={tinaField(review, "name")}>{review.name}</span> : null}
       {review.context ? (
         <span className={styles.context} data-tina-field={tinaField(review, "context")}>
           {review.context}

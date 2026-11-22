@@ -9,14 +9,14 @@ type HomepageResult = Awaited<ReturnType<typeof client.queries.homepage>>;
 // Render per-request rather than pre-rendering at build time. The query
 // itself is fast (~500ms, verified directly) but Next's build-time static
 // generation wraps fetch() with its own caching/dedup machinery that
-// resolve()'s many underlying Upstash REST calls don't play well with —
+// resolve()'s many underlying Upstash REST calls don't play well with:
 // reliably times out after 60s during `next build`, even though the exact
 // same call completes quickly as a live request outside that code path.
 export const dynamic = "force-dynamic";
 
 // databaseClient resolves directly against tina/database.ts (in-process,
 // no network round trip) rather than an HTTP content API, so this succeeds
-// or throws immediately — no fetch timeout needed. Still wrapped in a
+// or throws immediately, no fetch timeout needed. Still wrapped in a
 // try/catch: if the self-hosted backend is misconfigured or a dependency
 // (GitHub, Redis) is briefly unavailable, the public site should still
 // render from the content bundled at build time rather than 500.

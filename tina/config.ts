@@ -24,7 +24,7 @@ export default defineConfig({
     publicFolder: "public",
     outputFolder: "admin",
   },
-  // Local mode still writes uploads straight to the filesystem (fine —
+  // Local mode still writes uploads straight to the filesystem (fine,
   // there's a real, persistent local repo checkout to write into). Every
   // other environment needs an external media store instead: Vercel's
   // serverless functions have no persistent/writable filesystem for
@@ -109,7 +109,7 @@ export default defineConfig({
               {
                 type: "string",
                 name: "heading",
-                label: "Heading (two lines — first name / last name)",
+                label: "Heading (two lines: first name / last name)",
               },
               {
                 type: "string",
@@ -197,7 +197,7 @@ export default defineConfig({
                 list: true,
                 ui: {
                   itemProps: (item) => ({
-                    label: item?.venue ? `${item.month ?? ""} ${item.day ?? ""} — ${item.venue}` : "New Show",
+                    label: item?.venue ? `${item.month ?? ""} ${item.day ?? ""}: ${item.venue}` : "New Show",
                   }),
                   defaultItem: { day: "", month: "", venue: "Venue name" },
                 },
@@ -222,7 +222,7 @@ export default defineConfig({
                 list: true,
                 ui: {
                   itemProps: (item) => ({
-                    label: item?.venue ? `${item.month ?? ""} ${item.day ?? ""} — ${item.venue}` : "New Show",
+                    label: item?.venue ? `${item.month ?? ""} ${item.day ?? ""}: ${item.venue}` : "New Show",
                   }),
                   defaultItem: { day: "", month: "", venue: "Venue name" },
                 },
@@ -254,7 +254,7 @@ export default defineConfig({
                   {
                     type: "string",
                     name: "detail",
-                    label: "Detail (e.g. \"— with The Sharp Seven\")",
+                    label: "Detail (e.g. \", with The Sharp Seven\")",
                   },
                   { type: "string", name: "tag", label: "Tag (right-aligned label)" },
                 ],

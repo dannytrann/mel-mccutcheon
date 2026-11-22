@@ -6,7 +6,7 @@ import { useEffect } from "react";
 //
 // Targets are picked structurally so sections don't need per-element markup:
 // within each <section> (except the hero, which animates in pure CSS on
-// load), every child of the section's inner wrapper is revealed — and when a
+// load), every child of the section's inner wrapper is revealed, and when a
 // child is a list/grid (3+ children), its items are revealed one by one with
 // a short stagger instead.
 //
