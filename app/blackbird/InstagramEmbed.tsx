@@ -43,7 +43,7 @@ export default function InstagramEmbed({ url, caption }: { url: string; caption:
         padding: 0,
       }}
     >
-      <a href={url} target="_blank" rel="noopener noreferrer" style={{ display: "block", padding: "1.5rem", color: "#17A398" }}>
+      <a href={url} target="_blank" rel="noopener noreferrer" style={{ display: "block", padding: "1.5rem", color: "#a97f3f" }}>
         {caption} (view on Instagram)
       </a>
     </blockquote>
