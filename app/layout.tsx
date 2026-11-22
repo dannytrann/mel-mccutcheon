@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Archivo } from "next/font/google";
 import "./globals.css";
+import { SITE_URL } from "@/lib/site";
 
 const archivo = Archivo({
   variable: "--font-archivo",
@@ -9,15 +10,35 @@ const archivo = Archivo({
   style: ["normal", "italic"],
 });
 
+const DESCRIPTION =
+  "Mel McCutcheon, jazz vocalist on Vancouver Island, BC. Fronting The Sharp Seven, the Mel McCutcheon Ensembles and Vintage Velvet. Shows, bands and bookings.";
+
 export const metadata: Metadata = {
-  title: "Mel McCutcheon | Jazz Vocalist",
-  description:
-    "Mel McCutcheon, jazz vocalist on Vancouver Island. Singing silky smooth, sweet, and sometimes a wee bit sticky.",
+  metadataBase: new URL(SITE_URL),
+  title: "Mel McCutcheon | Jazz Vocalist on Vancouver Island",
+  description: DESCRIPTION,
+  alternates: { canonical: "/" },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large" } },
+  openGraph: {
+    type: "website",
+    locale: "en_CA",
+    url: "/",
+    siteName: "Mel McCutcheon",
+    title: "Mel McCutcheon | Jazz Vocalist on Vancouver Island",
+    description: DESCRIPTION,
+    images: [{ url: "/uploads/hero-mel-singing.jpg", alt: "Mel McCutcheon singing on stage" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mel McCutcheon | Jazz Vocalist on Vancouver Island",
+    description: DESCRIPTION,
+    images: ["/uploads/hero-mel-singing.jpg"],
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={archivo.variable}>
+    <html lang="en-CA" className={archivo.variable}>
       <head>
         {/* Big Shoulders Display/Text aren't in next/font/google's bundled
             metadata yet, so they're loaded the same way the design

@@ -3,6 +3,41 @@ import PageClient from "./page-client";
 import PageStatic from "./page-static";
 import fallbackData from "@/content/homepage/home.json";
 import type { HomepageData } from "@/lib/tina-types";
+import { MEL, SITE_URL, jsonLd } from "@/lib/site";
+
+const homeJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": `${SITE_URL}/#mel`,
+      name: MEL.name,
+      url: `${SITE_URL}/`,
+      image: `${SITE_URL}/uploads/hero-mel-singing.jpg`,
+      jobTitle: "Jazz Vocalist",
+      description: "Jazz vocalist on Vancouver Island, BC. Fronts The Sharp Seven and leads the Mel McCutcheon Ensembles.",
+      email: `mailto:${MEL.bookingEmail}`,
+      homeLocation: { "@type": "Place", name: "Vancouver Island, British Columbia, Canada" },
+      memberOf: [
+        { "@type": "MusicGroup", name: "The Sharp Seven", genre: "Jazz" },
+        { "@type": "MusicGroup", name: "Vintage Velvet", genre: "Jazz" },
+      ],
+      sameAs: [MEL.instagram, MEL.realEstate],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: `${SITE_URL}/`,
+      name: "Mel McCutcheon",
+      inLanguage: "en-CA",
+      about: { "@id": `${SITE_URL}/#mel` },
+    },
+  ],
+};
+
+function HomeJsonLd() {
+  return <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(homeJsonLd)} />;
+}
 
 type HomepageResult = Awaited<ReturnType<typeof client.queries.homepage>>;
 
@@ -32,19 +67,27 @@ export default async function Page() {
   const result = await fetchHomepage();
 
   if (!result) {
-    return <PageStatic data={fallbackData as unknown as HomepageData} />;
+    return (
+      <>
+        <HomeJsonLd />
+        <PageStatic data={fallbackData as unknown as HomepageData} />
+      </>
+    );
   }
 
   return (
-    <PageClient
-      query={result.query}
-      variables={result.variables}
-      // databaseClient resolves in-process (unlike the old HTTP client,
-      // which implicitly flattened everything to plain JSON via
-      // Response.json()), so its result can carry non-plain values a
-      // Server → Client Component boundary rejects. Round-tripping through
-      // JSON strips those, same as an HTTP response would have.
-      data={JSON.parse(JSON.stringify(result.data))}
-    />
+    <>
+      <HomeJsonLd />
+      <PageClient
+        query={result.query}
+        variables={result.variables}
+        // databaseClient resolves in-process (unlike the old HTTP client,
+        // which implicitly flattened everything to plain JSON via
+        // Response.json()), so its result can carry non-plain values a
+        // Server → Client Component boundary rejects. Round-tripping through
+        // JSON strips those, same as an HTTP response would have.
+        data={JSON.parse(JSON.stringify(result.data))}
+      />
+    </>
   );
 }
