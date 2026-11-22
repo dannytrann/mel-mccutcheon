@@ -8,3 +8,16 @@
   border-top: 1px solid var(--color-line);
   text-transform: uppercase;
 }
+
+.credit {
+  margin-top: 0.5rem;
+  font-size: 0.72rem;
+}
+
+.credit a {
+  color: var(--color-text-muted);
+}
+
+.credit a:hover {
+  color: var(--color-brass-bright);
+}

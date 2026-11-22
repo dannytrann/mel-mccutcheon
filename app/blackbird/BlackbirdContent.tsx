@@ -7,6 +7,7 @@ import Image from "next/image";
 import type { HomepageData } from "@/lib/tina-types";
 import Nav from "@/components/Nav";
 import footerStyles from "@/components/Footer.module.css";
+import SiteCredit from "@/components/SiteCredit";
 import ScrollReveal from "@/components/ScrollReveal";
 import Lightbox from "@/components/Lightbox";
 import InstagramEmbed from "./InstagramEmbed";
@@ -602,7 +603,10 @@ export default function BlackbirdContent({ data }: { data: HomepageData }) {
         </div>
       </section>
 
-      <footer className={footerStyles.footer}>© 2026 Blackbird Productions · Campbell River and Comox, BC</footer>
+      <footer className={footerStyles.footer}>
+        <div>© 2026 Blackbird Productions · Campbell River and Comox, BC</div>
+        <SiteCredit />
+      </footer>
       <ScrollReveal />
       <Lightbox />
     </div>
