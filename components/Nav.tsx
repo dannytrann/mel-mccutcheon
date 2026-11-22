@@ -85,15 +85,27 @@ export default function Nav({
         >
           {data.siteMeta?.logoText}
         </a>
-        <button
-          type="button"
-          className={styles.menuBtn}
-          aria-expanded={open}
-          aria-controls="site-menu"
-          onClick={() => setOpen((o) => !o)}
-        >
-          {open ? "Close" : "Menu"}
-        </button>
+        <div className={styles.end}>
+          <button
+            type="button"
+            className={styles.menuBtn}
+            aria-expanded={open}
+            aria-controls="site-menu"
+            onClick={() => setOpen((o) => !o)}
+          >
+            {open ? "Close" : "Menu"}
+          </button>
+          <a
+            href="https://melmccutcheon.royallepage.ca/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.sneaky}
+            aria-label="Mel's real estate website"
+            title="Mel's real estate website"
+          >
+            ↗
+          </a>
+        </div>
         <div
           id="site-menu"
           className={`${styles.links} ${open ? styles.linksOpen : ""}`}

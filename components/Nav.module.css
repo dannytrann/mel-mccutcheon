@@ -30,6 +30,7 @@
 .links {
   display: flex;
   align-items: center;
+  margin-left: auto;
   gap: 1.7rem;
   font-family: var(--font-caps);
   font-size: 0.85rem;
@@ -185,5 +186,36 @@
 @media (max-width: 640px) {
   .inner {
     padding: 0.6rem 1.25rem;
+  }
+}
+
+/* Right-hand cluster: Menu button (phones) and the subtle real estate link */
+.end {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  order: 3;
+  margin-left: 1.4rem;
+}
+
+.sneaky {
+  font-size: 0.95rem;
+  line-height: 1;
+  color: var(--color-text-faint);
+  opacity: 0.6;
+  transition:
+    opacity 0.2s,
+    color 0.2s;
+}
+
+.sneaky:hover,
+.sneaky:focus-visible {
+  opacity: 1;
+  color: var(--color-brass-bright);
+}
+
+@media (max-width: 860px) {
+  .end {
+    margin-left: auto;
   }
 }
