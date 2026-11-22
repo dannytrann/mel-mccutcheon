@@ -1,12 +1,13 @@
 "use client";
 
 // Client component for the same reason as app/page-static.tsx: the shared
-// Nav/Footer call tinaField(), which isn't safe in a server-only module graph.
+// Nav calls tinaField(), which isn't safe in a server-only module graph.
 
 import Image from "next/image";
 import type { HomepageData } from "@/lib/tina-types";
 import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
+import footerStyles from "@/components/Footer.module.css";
+import { BLACKBIRD_SECTIONS } from "@/lib/blackbird-sections";
 import ScrollReveal from "@/components/ScrollReveal";
 import Lightbox from "@/components/Lightbox";
 import InstagramEmbed from "./InstagramEmbed";
@@ -14,6 +15,10 @@ import s from "./blackbird.module.css";
 
 const FB = "https://www.facebook.com/BlackbirdProductionsvanisle";
 const ALBUMS = `${FB}/photos_albums`;
+const NAV_ITEMS = [
+  ...BLACKBIRD_SECTIONS.map((sec) => ({ label: sec.label, href: `#${sec.id}` })),
+  { label: "Mel McCutcheon", href: "/" },
+];
 const ADMITONE = "https://admitone.com/events/comox/community/music/the-sarah-stevenson-trio-aegean/P36NYF";
 const EVENTBRITE = "https://www.eventbrite.com/cc/winter-jazz-sessions-no1-6-4753763/";
 const CALENDAR = "https://productionsbyblackbird.my.canva.site/";
@@ -136,7 +141,7 @@ const ARTISTS = [
   [
     "Sarah Stevenson",
     "Vocals",
-    "Nanaimo born, now making waves in Montreal’s jazz scene. Two DownBeat Magazine Awards at just 21 years old, and a performance at the Montreal International Jazz Festival. Smooth, silky vocals and fresh interpretations of jazz classics. Her Christmas matinee on December 20 is her only Vancouver Island holiday show.",
+    "Nanaimo born, now making waves in Montreal’s jazz scene. Two DownBeat Magazine Awards at just 21 years old, and a performance at the Montreal International Jazz Festival. Smooth, silky vocals and fresh interpretations of jazz classics.",
   ],
   [
     "Katie Campbell",
@@ -218,12 +223,6 @@ const VENUES: Venue[] = [
   },
   { name: "Painter’s Lodge", address: "Campbell River", body: "Hosted the Valentine’s Lunch Matinee on February 14, 2026." },
   { name: "Little Red Church", address: "Comox", body: "Hosted One Winter Night 4 on February 7, 2026." },
-  {
-    name: "On the vineyard",
-    address: "40 Knots Winery",
-    body: "Wine by the glass, soup and a bun, and live jazz on a Sunday afternoon.",
-    photo: ["/blackbird/40knots-tasting.jpg", "Wine tasting at 40 Knots Winery", "Experience Comox Valley"],
-  },
 ];
 
 const SEASON = [
@@ -234,15 +233,9 @@ const SEASON = [
   ["Oct 8, 2026", "Jazz Night with Beau Stocker and Friends, The Mex Pub"],
   ["Sep 24, 2026", "Jazz Jam, The Mex Pub"],
   ["Sep 10, 2026", "Beau Stocker and Friends, The Mex Pub"],
-  ["Mar 15, 2026", "Jazz Session No. 6, Syncopated Sunday, Anderson Jazz Trio, 40 Knots Winery"],
-  ["Mar 1, 2026", "Jazz Session No. 5, Tribute to Cole Porter, Amy and Her Accomplices, 40 Knots Winery"],
   ["Feb 28, 2026", "Island Standard Time matinee, sold out"],
-  ["Feb 15, 2026", "Jazz Session No. 4, Sunday Swing, Melissa Thibeault, Rick Jamison and Drake Shoemaker, 40 Knots Winery"],
   ["Feb 14, 2026", "Valentine’s Lunch Matinee, Painter’s Lodge, Campbell River"],
   ["Feb 7, 2026", "One Winter Night 4, Little Red Church, Comox"],
-  ["Jan 10, 2026", "Jazz Session No. 3, Take Five Below, The Sharp Seven, 40 Knots Winery"],
-  ["Dec 6, 2025", "Jazz Session No. 2, Afternoon Groove, Drummond-Stocker Duo, 40 Knots Winery"],
-  ["Nov 22, 2025", "Jazz Session No. 1, Late Fall, Smooth Call, The Mel McCutcheon Quartet, Rivercity Players, Campbell River"],
 ];
 
 const QUOTES = [
@@ -261,7 +254,7 @@ export default function BlackbirdContent({ data }: { data: HomepageData }) {
   return (
     <div>
       <div className="grain" />
-      <Nav data={data} base="/" />
+      <Nav data={data} logo={{ label: "Blackbird Productions", href: "#home" }} items={NAV_ITEMS} />
 
       {/* Hero (id="home" so ScrollReveal leaves it alone, like the homepage hero) */}
       <section id="home" className={s.hero}>
@@ -277,8 +270,7 @@ export default function BlackbirdContent({ data }: { data: HomepageData }) {
             <span className={s.accent}>Productions</span>
           </h1>
           <p className={s.tagline}>
-            Live jazz, taking flight on Vancouver Island. Blackbird Productions brings people together through music, art and
-            community, one Sunday matinee at a time.
+            Live jazz, taking flight on Vancouver Island, one Sunday matinee at a time.
           </p>
           <div className={s.ctaRow}>
             <a href="#upcoming" className={`${s.btn} ${s.btnSolid}`}>
@@ -311,20 +303,8 @@ export default function BlackbirdContent({ data }: { data: HomepageData }) {
                   <dd>Campbell River and Comox, BC</dd>
                 </div>
                 <div>
-                  <dt>Category</dt>
-                  <dd>Event Planner</dd>
-                </div>
-                <div>
                   <dt>First show</dt>
                   <dd>November 22, 2025</dd>
-                </div>
-                <div>
-                  <dt>Contact</dt>
-                  <dd>
-                    <a href="tel:+12365082897">{PHONE}</a>
-                    <br />
-                    <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
-                  </dd>
                 </div>
               </dl>
             </div>
@@ -340,6 +320,13 @@ export default function BlackbirdContent({ data }: { data: HomepageData }) {
               <div key={name} className={s.item}>
                 <h3 className={s.name}>{name}</h3>
                 <p className={s.description}>{body}</p>
+                {name === "The jazz calendar" ? (
+                  <div className={s.actions}>
+                    <Ext href={CALENDAR} className={s.pill}>
+                      See the November calendar
+                    </Ext>
+                  </div>
+                ) : null}
               </div>
             ))}
           </div>
@@ -399,7 +386,6 @@ export default function BlackbirdContent({ data }: { data: HomepageData }) {
           </div>
           <p className={s.more}>
             <Ext href={`${FB}/reels`}>More reels on Facebook →</Ext>
-            <Ext href={ALBUMS}>Photo albums on Facebook →</Ext>
           </p>
         </div>
       </section>
@@ -432,6 +418,21 @@ export default function BlackbirdContent({ data }: { data: HomepageData }) {
           <p className={s.more}>
             <Ext href={EVENTBRITE}>The full series on Eventbrite →</Ext>
           </p>
+        </div>
+      </section>
+
+      {/* Season */}
+      <section id="season" className={s.section}>
+        <div className={s.wrap}>
+          <Head eyebrow="Since the sessions" title="The season so far" sub="Every other show Blackbird has put on, newest first." />
+          <div className={s.list}>
+            {SEASON.map(([date, what]) => (
+              <div key={date + what} className={s.row}>
+                <div className={s.venue}>{what}</div>
+                <div className={s.tag}>{date}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -500,11 +501,6 @@ export default function BlackbirdContent({ data }: { data: HomepageData }) {
               Browse the photo albums on Facebook
             </Ext>
           </div>
-          <p className={s.note}>
-            The photographers’ work also lives on in the 2027 Blackbird Wall Calendar, macrophotography images celebrating a year
-            of live performance in the Comox Valley, sold on Etsy Canada, along with Blackbird water bottles, mugs, stickers and
-            bags.
-          </p>
         </div>
       </section>
 
@@ -536,38 +532,11 @@ export default function BlackbirdContent({ data }: { data: HomepageData }) {
         </div>
       </section>
 
-      {/* Season */}
-      <section id="season" className={s.section}>
-        <div className={s.wrap}>
-          <Head eyebrow="The season so far" title="Every show so far" sub="Every show Blackbird has put on, newest first." />
-          <div className={s.list}>
-            {SEASON.map(([date, what]) => (
-              <div key={date + what} className={s.row}>
-                <div className={s.venue}>{what}</div>
-                <div className={s.tag}>{date}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Community */}
       <section id="community" className={s.section}>
         <div className={s.wrap}>
           <Head eyebrow="Community" title="More than the music" sub="Blackbird looks after the scene it is building." />
-          <div className={s.grid}>
-            <div className={s.item}>
-              <h3 className={s.name}>The monthly jazz calendar</h3>
-              <p className={s.description}>
-                Blackbird publishes a monthly calendar of live jazz from Campbell River to Qualicum, crowdsourced from the
-                community. Know of a gig? They will add it.
-              </p>
-              <div className={s.actions}>
-                <Ext href={CALENDAR} className={s.pill}>
-                  See the November calendar
-                </Ext>
-              </div>
-            </div>
+          <div className={`${s.grid} ${s.grid2}`}>
             <div className={s.item}>
               <h3 className={s.name}>Looking after the musicians</h3>
               <p className={s.description}>
@@ -632,19 +601,12 @@ export default function BlackbirdContent({ data }: { data: HomepageData }) {
               <li>
                 <a href="tel:+12365082897">{PHONE}</a>
               </li>
-              <li>
-                <Ext href={CALENDAR}>Jazz calendar</Ext>
-              </li>
-              <li>
-                Tickets: <Ext href={ADMITONE}>AdmitONE</Ext> · <Ext href={EVENTBRITE}>Eventbrite</Ext>
-              </li>
             </ul>
           </div>
-          <p className={s.note}>Built from Blackbird Productions’ public Facebook and Instagram posts. Event details can change, check the Facebook Page before you go.</p>
         </div>
       </section>
 
-      <Footer data={data} />
+      <footer className={footerStyles.footer}>© 2026 Blackbird Productions · Campbell River and Comox, BC</footer>
       <ScrollReveal />
       <Lightbox />
     </div>

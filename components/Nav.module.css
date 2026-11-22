@@ -9,6 +9,7 @@
 }
 
 .inner {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -28,8 +29,8 @@
 
 .links {
   display: flex;
+  align-items: center;
   gap: 1.7rem;
-  list-style: none;
   font-family: var(--font-caps);
   font-size: 0.85rem;
   letter-spacing: 0.08em;
@@ -39,14 +40,149 @@
 
 .link {
   color: var(--color-text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 .link:hover {
   color: var(--color-brass-bright);
 }
 
-@media (max-width: 760px) {
+.caret {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+}
+
+/* Dropdown (desktop): opens on hover or keyboard focus */
+.hasMenu {
+  position: relative;
+}
+
+.menu {
+  position: absolute;
+  top: 100%;
+  left: -1.2rem;
+  min-width: 13rem;
+  padding: 0.6rem 0;
+  margin-top: 0.6rem;
+  background: var(--color-bg);
+  border: 1px solid var(--color-line);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition:
+    opacity 0.18s,
+    transform 0.18s,
+    visibility 0.18s;
+}
+
+/* Hover bridge so the menu doesn't close crossing the gap */
+.menu::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -0.8rem;
+  height: 0.8rem;
+}
+
+.hasMenu:hover .menu,
+.hasMenu:focus-within .menu {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.menuLink {
+  padding: 0.5rem 1.2rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.menuLink:hover,
+.menuLink:focus-visible {
+  color: var(--color-brass-bright);
+  background: var(--color-bg-alt);
+}
+
+.menuBtn {
+  display: none;
+  background: none;
+  border: 1px solid var(--color-line);
+  color: var(--color-text);
+  font-family: var(--font-caps);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.9rem;
+  cursor: pointer;
+}
+
+/* Phones: links collapse into a panel behind the Menu button; dropdown
+   entries show inline, indented under their parent. */
+@media (max-width: 860px) {
+  .menuBtn {
+    display: block;
+  }
+
   .links {
     display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0.6rem 1.25rem 1.2rem;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-line);
+    max-height: calc(100svh - 56px);
+    overflow-y: auto;
+  }
+
+  .linksOpen {
+    display: flex;
+  }
+
+  .link {
+    padding: 0.7rem 0;
+  }
+
+  .caret {
+    display: none;
+  }
+
+  .menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    border: 0;
+    margin: 0 0 0.4rem;
+    padding: 0 0 0 1rem;
+    border-left: 1px solid var(--color-line);
+    min-width: 0;
+  }
+
+  .menu::before {
+    display: none;
+  }
+
+  .menuLink {
+    padding: 0.45rem 0;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .inner {
+    padding: 0.6rem 1.25rem;
   }
 }
