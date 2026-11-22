@@ -48,13 +48,6 @@ const initials = (name: string) =>
     .slice(0, 3)
     .toUpperCase();
 
-const STATS = [
-  ["313", "Facebook followers"],
-  ["17", "Shows and counting"],
-  ["100%", "Recommend, 17 reviews"],
-  ["1", "Monthly jazz calendar for the whole coast"],
-];
-
 const ABOUT_CARDS = [
   [
     "Sunday matinees",
@@ -295,14 +288,6 @@ export default function BlackbirdContent({ data }: { data: HomepageData }) {
               Follow on Facebook
             </Ext>
           </div>
-          <dl className={s.stats}>
-            {STATS.map(([n, label]) => (
-              <div key={label}>
-                <dt>{n}</dt>
-                <dd>{label}</dd>
-              </div>
-            ))}
-          </dl>
         </div>
       </section>
 

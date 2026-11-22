@@ -200,32 +200,6 @@
   background: var(--color-brass-bright);
 }
 
-.stats {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.4rem 2rem;
-  margin-top: 2.8rem;
-  padding-top: 1.8rem;
-  border-top: 1px solid var(--color-line);
-}
-
-.stats dt {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 2.2rem;
-  line-height: 1;
-  color: var(--color-brass-bright);
-}
-
-.stats dd {
-  margin-top: 0.3rem;
-  font-family: var(--font-caps);
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-text-muted);
-}
-
 @media (max-width: 900px) {
   .hero {
     grid-template-columns: 1fr;
