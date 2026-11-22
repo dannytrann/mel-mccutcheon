@@ -97,3 +97,12 @@
   letter-spacing: 0.04em;
   color: rgba(201, 155, 86, 0.35);
 }
+
+/* Descriptions can hold several paragraphs separated by blank lines */
+.para {
+  display: block;
+}
+
+.para + .para {
+  margin-top: 0.9rem;
+}

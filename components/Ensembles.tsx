@@ -60,7 +60,11 @@ export default function Ensembles({ data }: { data: HomepageData }) {
                 className={styles.description}
                 data-tina-field={tinaField(item, "description")}
               >
-                {item?.description}
+                {(item?.description ?? "").split(/\n\s*\n/).map((para, j) => (
+                  <span key={j} className={styles.para}>
+                    {para}
+                  </span>
+                ))}
               </p>
             </div>
           ))}
