@@ -93,6 +93,7 @@
 }
 
 .hasMenu:hover .menu,
+.menuOpen .menu,
 .hasMenu:focus-within .menu {
   opacity: 1;
   visibility: visible;

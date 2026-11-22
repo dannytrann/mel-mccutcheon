@@ -7,7 +7,6 @@ import Image from "next/image";
 import type { HomepageData } from "@/lib/tina-types";
 import Nav from "@/components/Nav";
 import footerStyles from "@/components/Footer.module.css";
-import { BLACKBIRD_SECTIONS } from "@/lib/blackbird-sections";
 import ScrollReveal from "@/components/ScrollReveal";
 import Lightbox from "@/components/Lightbox";
 import InstagramEmbed from "./InstagramEmbed";
@@ -15,10 +14,7 @@ import s from "./blackbird.module.css";
 
 const FB = "https://www.facebook.com/BlackbirdProductionsvanisle";
 const ALBUMS = `${FB}/photos_albums`;
-const NAV_ITEMS = [
-  ...BLACKBIRD_SECTIONS.map((sec) => ({ label: sec.label, href: `#${sec.id}` })),
-  { label: "Mel McCutcheon", href: "/" },
-];
+
 const ADMITONE = "https://admitone.com/events/comox/community/music/the-sarah-stevenson-trio-aegean/P36NYF";
 const EVENTBRITE = "https://www.eventbrite.com/cc/winter-jazz-sessions-no1-6-4753763/";
 const CALENDAR = "https://productionsbyblackbird.my.canva.site/";
@@ -254,7 +250,7 @@ export default function BlackbirdContent({ data }: { data: HomepageData }) {
   return (
     <div>
       <div className="grain" />
-      <Nav data={data} logo={{ label: "Blackbird Productions", href: "#home" }} items={NAV_ITEMS} />
+      <Nav data={data} base="/" />
 
       {/* Hero (id="home" so ScrollReveal leaves it alone, like the homepage hero) */}
       <section id="home" className={s.hero}>
