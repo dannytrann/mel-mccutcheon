@@ -1,19 +1,34 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { tinaField } from "tinacms/dist/react";
 import type { HomepageData } from "@/lib/tina-types";
 import { BLACKBIRD_SECTIONS } from "@/lib/blackbird-sections";
 import styles from "./Nav.module.css";
 
+type NavChild = { label: string; href: string; external?: boolean };
+
 export type NavItem = {
   label: string;
   href: string;
-  children?: { label: string; href: string }[];
+  children?: NavChild[];
   tina?: unknown;
 };
 
 const BLACKBIRD_HREF = "/blackbird";
+
+// Code-defined entry (not in Tina) for Mel's other work, inserted before Contact.
+const OTHER_VENTURES: NavItem = {
+  label: "Other Ventures",
+  href: "#",
+  children: [
+    {
+      label: "Real Estate",
+      href: "https://melmccutcheon.royallepage.ca/",
+      external: true,
+    },
+  ],
+};
 
 // The homepage's Tina-managed links; the "Blackbird Productions" entry gets
 // a dropdown of that page's sections. `base` lets other pages (e.g.
@@ -47,18 +62,20 @@ export default function Nav({
           : undefined,
     };
   });
+  const contactAt = links.findIndex((l) => l.href.endsWith("#contact"));
+  links.splice(contactAt === -1 ? links.length : contactAt, 0, OTHER_VENTURES);
 
-  // Desktop dropdown: opens on hover/focus (CSS) and also on click, which
-  // toggles it instead of navigating. Outside click or Escape closes it.
-  const [menuOpen, setMenuOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
+  // Desktop dropdowns open on hover/focus (CSS) and also on click, which
+  // toggles them instead of navigating. Outside click or Escape closes.
+  const [menuOpen, setMenuOpen] = useState<number | null>(null);
   useEffect(() => {
-    if (!menuOpen) return;
+    if (menuOpen === null) return;
     const onDown = (e: MouseEvent) => {
-      if (!menuRef.current?.contains(e.target as Node)) setMenuOpen(false);
+      if (!(e.target as Element).closest?.("[data-dropdown]"))
+        setMenuOpen(null);
     };
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setMenuOpen(false);
+      if (e.key === "Escape") setMenuOpen(null);
     };
     document.addEventListener("mousedown", onDown);
     document.addEventListener("keydown", onKey);
@@ -70,7 +87,7 @@ export default function Nav({
 
   const close = () => {
     setOpen(false);
-    setMenuOpen(false);
+    setMenuOpen(null);
   };
   const isDesktop = () => window.matchMedia("(min-width: 861px)").matches;
 
@@ -85,27 +102,15 @@ export default function Nav({
         >
           {data.siteMeta?.logoText}
         </a>
-        <div className={styles.end}>
-          <button
-            type="button"
-            className={styles.menuBtn}
-            aria-expanded={open}
-            aria-controls="site-menu"
-            onClick={() => setOpen((o) => !o)}
-          >
-            {open ? "Close" : "Menu"}
-          </button>
-          <a
-            href="https://melmccutcheon.royallepage.ca/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.sneaky}
-            aria-label="Mel's real estate website"
-            title="Mel's real estate website"
-          >
-            ↗
-          </a>
-        </div>
+        <button
+          type="button"
+          className={styles.menuBtn}
+          aria-expanded={open}
+          aria-controls="site-menu"
+          onClick={() => setOpen((o) => !o)}
+        >
+          {open ? "Close" : "Menu"}
+        </button>
         <div
           id="site-menu"
           className={`${styles.links} ${open ? styles.linksOpen : ""}`}
@@ -113,10 +118,10 @@ export default function Nav({
           {links.map((link, i) => (
             <div
               key={i}
-              ref={link.children ? menuRef : undefined}
+              data-dropdown={link.children ? "" : undefined}
               className={
                 link.children
-                  ? `${styles.hasMenu} ${menuOpen ? styles.menuOpen : ""}`
+                  ? `${styles.hasMenu} ${menuOpen === i ? styles.menuOpen : ""}`
                   : styles.item
               }
             >
@@ -127,11 +132,11 @@ export default function Nav({
                   link.tina ? tinaField(link.tina as never, "label") : undefined
                 }
                 aria-haspopup={link.children ? "true" : undefined}
-                aria-expanded={link.children ? menuOpen : undefined}
+                aria-expanded={link.children ? menuOpen === i : undefined}
                 onClick={(e) => {
-                  if (link.children && isDesktop()) {
+                  if (link.children && (isDesktop() || link.href === "#")) {
                     e.preventDefault();
-                    setMenuOpen((o) => !o);
+                    if (isDesktop()) setMenuOpen((o) => (o === i ? null : i));
                     return;
                   }
                   close();
@@ -150,8 +155,12 @@ export default function Nav({
                       href={c.href}
                       className={styles.menuLink}
                       onClick={close}
+                      {...(c.external
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
                     >
                       {c.label}
+                      {c.external ? <span aria-hidden="true"> ↗</span> : null}
                     </a>
                   ))}
                 </div>
