@@ -18,7 +18,6 @@ const ALBUMS = `${FB}/photos_albums`;
 
 const ADMITONE = "https://admitone.com/events/comox/community/music/the-sarah-stevenson-trio-aegean/P36NYF";
 const EVENTBRITE = "https://www.eventbrite.com/cc/winter-jazz-sessions-no1-6-4753763/";
-const CALENDAR = "https://productionsbyblackbird.my.canva.site/";
 const INSTAGRAM = "https://www.instagram.com/productionsbyblackbird/";
 const EMAIL = "productionsbyblackbird@gmail.com";
 const PHONE = "(236) 508-2897";
@@ -50,18 +49,25 @@ const initials = (name: string) =>
     .slice(0, 3)
     .toUpperCase();
 
+// [name, schedule, admission, body]
 const ABOUT_CARDS = [
   [
-    "Sunday matinees",
-    "Afternoon jazz at 40 Knots Winery in Comox and Rivercity Players in Campbell River. Doors at 12:30, music at 1:30, soup and a bun on the table and wine by the glass.",
+    "Thursday Jazz Jams | The Mex Pub",
+    "Every 4th Thursday | 6–8 PM",
+    "By donation",
+    "An open gathering for jazz musicians to share their talents, collaborate and connect. A welcoming space for emerging and seasoned players alike.",
   ],
   [
-    "Jazz Nights and Jams",
-    "Evenings at The Mex Pub in Courtenay. Jazz Nights on the second Thursday of the month, open Jazz Jams where local players sign up and sit in.",
+    "2nd Thursday Dinner-Hour Performance | The Mex Pub",
+    "Every 2nd Thursday | 6–8 PM",
+    "By donation",
+    "Featuring a rotating selection of local and regional musicians, these dinner-hour performances offer artists an opportunity to share their music, connect with new audiences and enjoy a welcoming performance setting.",
   ],
   [
-    "The jazz calendar",
-    "A monthly roundup of live jazz from Campbell River to Qualicum, crowdsourced from the community. If you know of a gig, Blackbird will add it.",
+    "Sunday Matinée Series | 40 Knots Winery",
+    "Typically one Sunday each month",
+    "Ticketed event",
+    "An afternoon concert featuring an opening act and headline performer, celebrating the depth and diversity of musical talent in our region.",
   ],
 ];
 
@@ -285,14 +291,25 @@ export default function BlackbirdContent({ data }: { data: HomepageData }) {
         <div className={s.wrap}>
           <div className={s.split}>
             <div>
-              <Head eyebrow="About" title="A new venture taking flight" />
+              <Head eyebrow="About Blackbird Productions" title="A creative community taking flight" />
               <p className={s.lead}>
-                Blackbird Productions is a new creative venture taking flight, bringing people together through music, art and
-                community.
+                Born in the fall of 2025, Blackbird Productions is a growing creative collective bringing people together
+                through music, art and community. Now in its second season, Blackbird continues to create opportunities for
+                musicians and audiences to connect, collaborate and experience live music.
               </p>
               <p className={s.paragraph}>
-                Their mission is to create meaningful performance, networking and mentoring opportunities for accomplished
-                musicians, emerging artists and students, while hosting vibrant events that celebrate creativity in motion.
+                Spearheaded by Mel McCutcheon and Beau Stocker, Blackbird brings together like-minded, music and
+                community-focused individuals with a shared passion for supporting local and regional talent.
+              </p>
+              <p className={s.paragraph}>
+                Through collaborations with The Mex Pub in Courtenay and 40 Knots Winery in Comox, Blackbird supports and
+                promotes performance opportunities for local and regional emerging and seasoned artists, while fostering
+                connections between musicians, students, mentors and audiences.
+              </p>
+              <p className={s.paragraph}>
+                Blackbird’s mission is to create meaningful performance, networking and mentoring opportunities for
+                accomplished musicians, emerging artists and students, while celebrating creativity and strengthening our
+                regional arts community.
               </p>
               <dl className={s.facts}>
                 <div>
@@ -312,20 +329,40 @@ export default function BlackbirdContent({ data }: { data: HomepageData }) {
               <figcaption className={s.credit}>Photo: British Columbia Magazine</figcaption>
             </figure>
           </div>
-          <div className={`${s.grid} ${s.gridTop}`}>
-            {ABOUT_CARDS.map(([name, body]) => (
+          <div className={`${s.head} ${s.gridTop}`}>
+            <h3 className={s.heading}>Three monthly live performance opportunities. One creative community.</h3>
+            <p className={s.sub}>
+              Through collaborations with local venues, Blackbird supports and promotes three monthly live performance
+              opportunities, bringing musicians and audiences together through music and community.
+            </p>
+          </div>
+          <div className={s.grid}>
+            {ABOUT_CARDS.map(([name, schedule, admission, body]) => (
               <div key={name} className={s.item}>
                 <h3 className={s.name}>{name}</h3>
+                <div className={s.role}>
+                  {schedule}
+                  <br />
+                  {admission}
+                </div>
                 <p className={s.description}>{body}</p>
-                {name === "The jazz calendar" ? (
-                  <div className={s.actions}>
-                    <Ext href={CALENDAR} className={s.pill}>
-                      See the November calendar
-                    </Ext>
-                  </div>
-                ) : null}
               </div>
             ))}
+          </div>
+          <div className={`${s.head} ${s.gridTop}`}>
+            <div className={s.eyebrow}>Creativity in motion</div>
+            <p className={`${s.paragraph} ${s.narrow}`}>
+              For Blackbird Productions, it’s about more than music. It’s about building connections, creating
+              opportunities, nurturing talent and strengthening our local and regional arts community.
+            </p>
+            <p className={`${s.paragraph} ${s.narrow}`}>
+              For more information, upcoming events and updates, follow Blackbird Productions on Facebook:
+            </p>
+            <div className={s.actions}>
+              <Ext href={FB} className={s.pill}>
+                Blackbird Productions on Facebook
+              </Ext>
+            </div>
           </div>
         </div>
       </section>

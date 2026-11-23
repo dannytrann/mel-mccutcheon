@@ -37,6 +37,10 @@
         "position": "70% 30%"
       },
       {
+        "image": "/uploads/mel-profile-bw.jpg",
+        "position": "40% 35%"
+      },
+      {
         "image": "/uploads/mel-singing-green-top.jpg",
         "position": "50% 25%"
       },
@@ -64,12 +68,13 @@
   "about": {
     "eyebrow": "About",
     "heading": "A Voice For\nThe Late Set",
-    "leadText": "Singing silky smooth, sweet, and sometimes a wee bit sticky.",
+    "leadText": "",
     "paragraphs": [
-      "Based on Vancouver Island, Mel McCutcheon has become a fixture of the region's jazz rooms, a voice that moves easily between the warmth of a big band and the intimacy of a quartet.",
-      "She currently fronts three different Vancouver Island ensembles, each built for a different room, a different band, the same unmistakable voice."
+      "Based on Vancouver Island, Mel McCutcheon has become a familiar fixture in the region's jazz rooms. Her rich, warm voice has drawn comparisons to Nina Simone, Carmen McRae, and Ernestine Anderson, yet Mel has a style and sound all her own. Whether singing with the energy of a big band or the intimacy of a small jazz combo, she brings a natural feel for the music and a genuine love of every song she sings.",
+      "Having shared the stage on a number of occasions, Mel recently brought together guitarist Doug Anderson, bassist Brock Meades, and drummer Beau Stocker for a live-off-the-floor recording session at Barnhouse Sound Productions in Qualicum Beach. The recording captures these musicians playing together and is now available on Bandcamp.",
+      "You can catch Mel performing with Sharp Seven and a variety of smaller ensembles, primarily around the Comox Valley and Campbell River, as well as in intimate venues throughout Vancouver Island."
     ],
-    "photo": "/uploads/mel-profile-bw.jpg"
+    "photo": "/uploads/mel-purple-stage-mic.jpg"
   },
   "ensembles": {
     "eyebrow": "Ensembles",
@@ -204,7 +209,7 @@
     "noteLinkHref": "https://instagram.com/melmccutcheonmusic"
   },
   "reviews": {
-    "eyebrow": "Blackbird Productions",
+    "eyebrow": "Reviews",
     "heading": "What Audiences\nAre Saying",
     "items": [
       {

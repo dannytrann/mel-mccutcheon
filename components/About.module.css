@@ -53,7 +53,8 @@
 
 .photo :global(img) {
   object-fit: cover;
-  filter: grayscale(1) contrast(1.15) brightness(0.88);
+  object-position: 45% 50%;
+  filter: contrast(1.05) brightness(0.92);
 }
 
 @media (max-width: 800px) {

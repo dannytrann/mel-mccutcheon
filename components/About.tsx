@@ -22,9 +22,11 @@ export default function About({ data }: { data: HomepageData }) {
               </span>
             ))}
           </h2>
-          <p className={styles.lead} data-tina-field={tinaField(about, "leadText")}>
-            {about?.leadText}
-          </p>
+          {about?.leadText ? (
+            <p className={styles.lead} data-tina-field={tinaField(about, "leadText")}>
+              {about.leadText}
+            </p>
+          ) : null}
           {about?.paragraphs?.map((paragraph, i) => (
             <p
               key={i}

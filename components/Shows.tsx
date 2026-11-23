@@ -87,7 +87,7 @@ function ShowList({
           {heading}
         </h3>
       ) : null}
-      <div className={styles.upcomingList}>
+      <div className={`${styles.upcomingList} ${headingField === "pastHeading" ? styles.pastList : ""}`}>
         {list.map((ev, i) => (
           <ShowRow key={i} ev={ev} />
         ))}
@@ -117,6 +117,11 @@ export default function Shows({ data }: { data: HomepageData }) {
         {shows ? (
           <>
             <ShowList shows={shows} headingField="upcomingHeading" items={shows.upcoming} />
+            {shows.past?.length ? (
+              <div className={styles.pastBreak} aria-hidden="true">
+                <span className={styles.diamond} />
+              </div>
+            ) : null}
             <ShowList shows={shows} headingField="pastHeading" items={shows.past} />
           </>
         ) : null}

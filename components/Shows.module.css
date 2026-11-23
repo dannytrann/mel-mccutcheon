@@ -189,3 +189,41 @@
   margin-top: 2.2rem;
   color: var(--color-text-muted);
 }
+
+/* Divider between upcoming and past shows: brass rules with a centred diamond. */
+.pastBreak {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 4.5rem 0 1.2rem;
+}
+
+.pastBreak::before,
+.pastBreak::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--color-brass));
+}
+
+.pastBreak::after {
+  background: linear-gradient(to left, transparent, var(--color-brass));
+}
+
+.diamond {
+  width: 8px;
+  height: 8px;
+  transform: rotate(45deg);
+  background: var(--color-brass);
+}
+
+/* Past shows read as an archive: slightly dimmed until hovered. */
+.pastList {
+  opacity: 0.72;
+  transition: opacity 0.3s ease;
+}
+
+.pastList:hover,
+.pastList:focus-within {
+  opacity: 1;
+}
