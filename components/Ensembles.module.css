@@ -106,3 +106,14 @@
 .para + .para {
   margin-top: 0.9rem;
 }
+
+.link {
+  color: var(--color-brass-bright);
+  text-decoration: underline;
+  text-decoration-color: rgba(201, 155, 86, 0.45);
+  text-underline-offset: 0.18em;
+}
+
+.link:hover {
+  text-decoration-color: currentColor;
+}

@@ -81,23 +81,23 @@
     "photo": "/uploads/mel-purple-stage-mic.jpg"
   },
   "ensembles": {
-    "eyebrow": "Ensembles",
-    "heading": "Three Bands.\nOne Voice.",
+    "eyebrow": "",
+    "heading": "Projects and\nPerformances",
     "items": [
-      {
-        "photo": "/uploads/gallery-live-performance-wide.jpg",
-        "name": "The Sharp Seven",
-        "description": "The Sharp Seven is a well-established jazz ensemble with a long-standing history in the Comox Valley. Fronted by Mel McCutcheon, the group brings together a talented collection of musicians whose individual styles and musical experience blend to create a lively and engaging jazz sound.\n\nMel's warm, expressive vocals complement the band's rich instrumental arrangements, weaving together with the horns, piano and rhythm section to bring classic jazz favourites and swinging standards to life.\n\nThe current lineup features Paul Nuez on trombone, Grahame Edwards on bass, Michelle Draper on piano, Jack Reynolds on saxophone and flute, Beau Stocker on drums, and Dave Lymburner on trumpet.\n\nTheir repertoire ranges from timeless jazz standards and swing to blues, Latin rhythms and big-band favourites. With an easy musical rapport, lively interplay and a shared love of performing, The Sharp Seven continues to delight audiences throughout the Comox Valley and beyond."
-      },
       {
         "photo": "/uploads/quartet-blue-stage-wide.jpg",
         "name": "Mel McCutcheon Ensembles",
         "description": "Mel McCutcheon performs in a variety of musical settings, from intimate duos and trios to full quartets. These smaller ensembles are well suited to private events, cocktail receptions, elegant dinners, and special celebrations. Whether providing a subtle musical backdrop or stepping into the spotlight, Mel brings together the right combination of musicians and music to suit the occasion."
       },
       {
+        "photo": "/uploads/gallery-live-performance-wide.jpg",
+        "name": "The Sharp Seven",
+        "description": "The Sharp Seven is a well-established jazz ensemble with a long-standing history in the Comox Valley. Fronted by Mel McCutcheon, the group brings together a talented collection of musicians whose individual styles and musical experience blend to create a lively and engaging jazz sound.\n\nMel's warm, expressive vocals complement the band's rich instrumental arrangements, weaving together with the horns, piano and rhythm section to bring classic jazz favourites and swinging standards to life.\n\nThe current lineup features Paul Nuez on trombone, Grahame Edwards on bass, Michelle Draper on piano, Jack Reynolds on saxophone and flute, [Beau Stocker](https://www.beaustocker.com/) on drums, and Dave Lymburner on trumpet.\n\nTheir repertoire ranges from timeless jazz standards and swing to blues, Latin rhythms and big-band favourites. With an easy musical rapport, lively interplay and a shared love of performing, The Sharp Seven continues to delight audiences throughout the Comox Valley and beyond."
+      },
+      {
         "photo": "/uploads/vintage-velvet-band.jpg",
         "name": "Vintage Velvet",
-        "description": "A quintet built around Mel's soulful, Vaughan- and Simone-inflected side. Late nights, low light."
+        "description": "Vintage Velvet is a five-piece band built around Mel’s soulful, blues- and jazz-inspired vocals. Blending upbeat, well-loved classics with newer tunes, the band puts its own vintage spin on familiar favourites, bringing warmth, soul, energy, and a little nostalgia to every performance. Though currently on hiatus, Vintage Velvet celebrates great songs, timeless sounds, and music with character."
       }
     ]
   },
