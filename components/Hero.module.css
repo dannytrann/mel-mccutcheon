@@ -38,7 +38,10 @@
   }
 }
 
-.slideActive :global(img) {
+/* The leaving slide keeps the same animation, so its zoom carries on
+   through the fade instead of restarting or snapping back. */
+.slideActive :global(img),
+.slideLeaving :global(img) {
   animation: heroZoom 9s ease-out forwards;
 }
 
@@ -193,7 +196,8 @@
     transition: none;
   }
 
-  .slideActive :global(img) {
+  .slideActive :global(img),
+  .slideLeaving :global(img) {
     animation: none;
   }
 }

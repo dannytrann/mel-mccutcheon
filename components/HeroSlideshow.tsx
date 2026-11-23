@@ -12,7 +12,9 @@ const INTERVAL_MS = 6500;
 // (and is the only one shown for reduced-motion users); the rest fade in
 // one after another with a slow zoom. Pauses while the tab is hidden.
 export default function HeroSlideshow({ slides, alt }: { slides: Slide[]; alt: string }) {
-  const [active, setActive] = useState(0);
+  // `leaving` is the slide fading out. It keeps its zoom running until it's
+  // invisible; dropping the animation mid-fade would snap it back to scale 1.
+  const [{ active, leaving }, setState] = useState({ active: 0, leaving: -1 });
 
   useEffect(() => {
     if (slides.length < 2) return;
@@ -20,7 +22,10 @@ export default function HeroSlideshow({ slides, alt }: { slides: Slide[]; alt: s
 
     let timer: ReturnType<typeof setInterval> | undefined;
     const start = () => {
-      timer ??= setInterval(() => setActive((i) => (i + 1) % slides.length), INTERVAL_MS);
+      timer ??= setInterval(
+        () => setState(({ active: i }) => ({ active: (i + 1) % slides.length, leaving: i })),
+        INTERVAL_MS,
+      );
     };
     const stop = () => {
       if (timer) clearInterval(timer);
@@ -41,7 +46,7 @@ export default function HeroSlideshow({ slides, alt }: { slides: Slide[]; alt: s
       {slides.map((slide, i) => (
         <div
           key={slide.src + i}
-          className={`${styles.slide} ${i === active ? styles.slideActive : ""}`}
+          className={`${styles.slide} ${i === active ? styles.slideActive : ""} ${i === leaving ? styles.slideLeaving : ""}`}
           aria-hidden={i !== active}
         >
           <Image

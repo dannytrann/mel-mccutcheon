@@ -505,7 +505,7 @@ export default function BlackbirdContent({ data }: { data: HomepageData }) {
           <Head
             eyebrow="Behind the lens"
             title="A thousand thank-yous"
-            sub="A picture is worth a thousand words, and these photographers deserve a thousand thank-yous. That is Blackbird’s own line, from their November 17 thank-you post."
+            sub="A picture is worth a thousand words, and these photographers deserve a thousand thank-yous."
           />
           <div className={s.subheading}>Photographers</div>
           <div className={s.nameGrid}>
@@ -526,9 +526,9 @@ export default function BlackbirdContent({ data }: { data: HomepageData }) {
             ))}
           </div>
           <p className={`${s.paragraph} ${s.narrow}`}>
-            Blackbird’s shows are photographed by volunteers, and the albums are part of the story. The MAKH Quartet and Katie
-            Campbell matinee has 61 photos. The October 22 Mex Jam has 64. Every Jazz Session has its own album, from the first
-            night at Rivercity Players to the Cole Porter tribute.
+            Blackbird’s shows are captured by generous volunteer photographers who give their time and talent to every
+            event. Their work keeps these moments alive for the musicians, the venues and everyone in the audience, and
+            Blackbird is deeply grateful for it.
           </p>
           <div className={s.actions}>
             <Ext href={ALBUMS} className={s.pill}>
