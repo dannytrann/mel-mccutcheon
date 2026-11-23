@@ -1,0 +1,34 @@
+# Emails show-update subscribers when new shows are added to the homepage's
+# Upcoming list (by Mel in the site editor, or by a commit). See
+# scripts/notify-new-shows.mjs.
+name: Notify subscribers of new shows
+
+on:
+  push:
+    branches: [main]
+    paths: [content/homepage/home.json]
+
+concurrency:
+  group: notify-new-shows
+  cancel-in-progress: false
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Send email for new shows
+        run: node scripts/notify-new-shows.mjs "$BEFORE"
+        env:
+          BEFORE: ${{ github.event.before }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          RESEND_FROM: ${{ vars.RESEND_FROM }}
+          MAILING_ADDRESS: ${{ vars.MAILING_ADDRESS }}
+          SITE_URL: ${{ vars.SITE_URL }}

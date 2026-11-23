@@ -2,6 +2,7 @@ import Image from "next/image";
 import { tinaField } from "tinacms/dist/react";
 import type { HomepageData } from "@/lib/tina-types";
 import styles from "./Shows.module.css";
+import Subscribe from "./Subscribe";
 
 type Shows = NonNullable<HomepageData["shows"]>;
 type ShowItem =
@@ -117,6 +118,7 @@ export default function Shows({ data }: { data: HomepageData }) {
         {shows ? (
           <>
             <ShowList shows={shows} headingField="upcomingHeading" items={shows.upcoming} />
+            <Subscribe />
             {shows.past?.length ? (
               <div className={styles.pastBreak} aria-hidden="true">
                 <span className={styles.diamond} />

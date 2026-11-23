@@ -18,6 +18,7 @@
     "next-tinacms-cloudinary": "^27.0.4",
     "react": "19.2.8",
     "react-dom": "19.2.8",
+    "resend": "^6.39.0",
     "tinacms": "^3.12.1",
     "tinacms-authjs": "^24.0.3",
     "tinacms-gitprovider-github": "^4.1.16",
