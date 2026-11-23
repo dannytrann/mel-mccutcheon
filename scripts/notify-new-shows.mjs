@@ -19,7 +19,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 
 const CONTENT = "content/homepage/home.json";
 const SEGMENT_NAME = "Show updates";
-const SITE_URL = (process.env.SITE_URL || "https://mel-mccutcheon.vercel.app").replace(/\/$/, "");
+const SITE_URL = (process.env.SITE_URL || "https://www.melmccutcheon.ca").replace(/\/$/, "");
 const FROM = process.env.RESEND_FROM || "Mel McCutcheon <onboarding@resend.dev>";
 const REPLY_TO = "productionsbyblackbird@gmail.com";
 const MAILING_ADDRESS = process.env.MAILING_ADDRESS || "1056 Cordero Cres, Campbell River, BC, Canada";

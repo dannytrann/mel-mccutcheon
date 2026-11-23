@@ -1,7 +1,7 @@
 // Canonical public URL. Set NEXT_PUBLIC_SITE_URL in Vercel if a custom
 // domain is added later; everything (sitemap, robots, canonical tags,
 // structured data) follows it.
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://mel-mccutcheon.vercel.app").replace(/\/$/, "");
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.melmccutcheon.ca").replace(/\/$/, "");
 
 export const MEL = {
   name: "Mel McCutcheon",
