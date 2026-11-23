@@ -26,13 +26,20 @@ export const metadata: Metadata = {
     siteName: "Mel McCutcheon",
     title: "Mel McCutcheon | Jazz Vocalist on Vancouver Island",
     description: DESCRIPTION,
-    images: [{ url: "/uploads/hero-mel-singing.jpg", alt: "Mel McCutcheon singing on stage" }],
+    images: [
+      {
+        url: "/uploads/og-mel-arms-outstretched.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Mel McCutcheon singing with her arms outstretched",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Mel McCutcheon | Jazz Vocalist on Vancouver Island",
     description: DESCRIPTION,
-    images: ["/uploads/hero-mel-singing.jpg"],
+    images: ["/uploads/og-mel-arms-outstretched.jpg"],
   },
 };
 
