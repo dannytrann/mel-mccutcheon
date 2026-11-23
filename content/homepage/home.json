@@ -141,6 +141,18 @@
         "poster": "/uploads/event-2026-12-31-new-years-crown-isle.jpg",
         "detailsHref": "https://www.instagram.com/melmccutcheonmusic/p/Dfterq_OTRs/",
         "ticketsHref": "https://crownisle.com"
+      },
+      {
+        "day": "15",
+        "month": "Jan",
+        "title": "TEST SHOW (ignore): Email notification check",
+        "venue": "Test Venue",
+        "detail": "Courtenay",
+        "time": "Friday, 7 PM",
+        "price": "Free",
+        "poster": "",
+        "detailsHref": "https://mel-mccutcheon.vercel.app/#shows",
+        "ticketsHref": ""
       }
     ],
     "pastHeading": "Past Shows",
