@@ -185,11 +185,6 @@
   }
 }
 
-.note {
-  margin-top: 2.2rem;
-  color: var(--color-text-muted);
-}
-
 /* Divider between upcoming and past shows: brass rules with a centred diamond. */
 .pastBreak {
   display: flex;

@@ -114,3 +114,14 @@
     flex: 1 1 100%;
   }
 }
+
+/* "For the current schedule, follow @…" line under the button. */
+.note {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.note a {
+  color: var(--color-brass-bright);
+}

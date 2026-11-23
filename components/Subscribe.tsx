@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import styles from "./Subscribe.module.css";
 
 type Status = "idle" | "sending" | "sent" | "error";
@@ -12,7 +12,7 @@ const RETURN_MESSAGES: Record<string, [Status, string]> = {
   error: ["error", "Something went wrong confirming your email. Please try again."],
 };
 
-export default function Subscribe() {
+export default function Subscribe({ note }: { note?: ReactNode }) {
   const [status, setStatus] = useState<Status>("idle");
   const [message, setMessage] = useState("");
 
@@ -54,36 +54,39 @@ export default function Subscribe() {
         <h3 className={styles.title}>Never miss a show</h3>
         <p className={styles.text}>Get an email whenever Mel adds a new date. No spam, unsubscribe anytime.</p>
       </div>
-      {status === "sent" ? (
-        <p className={styles.success} role="status">
-          {message}
-        </p>
-      ) : (
-        <form className={styles.form} onSubmit={onSubmit} noValidate={false}>
-          <label htmlFor="subscribe-email" className={styles.srOnly}>
-            Email address
-          </label>
-          <input
-            id="subscribe-email"
-            name="email"
-            type="email"
-            required
-            autoComplete="email"
-            placeholder="you@example.com"
-            className={styles.input}
-          />
-          {/* Honeypot, hidden from people and screen readers. */}
-          <input name="company" tabIndex={-1} autoComplete="off" aria-hidden="true" className={styles.honeypot} />
-          <button type="submit" className={styles.button} disabled={status === "sending"}>
-            {status === "sending" ? "Sending…" : "Keep me posted"}
-          </button>
-          {status === "error" && message ? (
-            <p className={styles.error} role="alert">
-              {message}
-            </p>
-          ) : null}
-        </form>
-      )}
+      <div>
+        {status === "sent" ? (
+          <p className={styles.success} role="status">
+            {message}
+          </p>
+        ) : (
+          <form className={styles.form} onSubmit={onSubmit} noValidate={false}>
+            <label htmlFor="subscribe-email" className={styles.srOnly}>
+              Email address
+            </label>
+            <input
+              id="subscribe-email"
+              name="email"
+              type="email"
+              required
+              autoComplete="email"
+              placeholder="you@example.com"
+              className={styles.input}
+            />
+            {/* Honeypot, hidden from people and screen readers. */}
+            <input name="company" tabIndex={-1} autoComplete="off" aria-hidden="true" className={styles.honeypot} />
+            <button type="submit" className={styles.button} disabled={status === "sending"}>
+              {status === "sending" ? "Sending…" : "Keep me posted"}
+            </button>
+            {status === "error" && message ? (
+              <p className={styles.error} role="alert">
+                {message}
+              </p>
+            ) : null}
+          </form>
+        )}
+        {note ? <p className={styles.note}>{note}</p> : null}
+      </div>
     </div>
   );
 }

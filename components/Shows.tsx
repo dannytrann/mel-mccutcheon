@@ -118,7 +118,19 @@ export default function Shows({ data }: { data: HomepageData }) {
         {shows ? (
           <>
             <ShowList shows={shows} headingField="upcomingHeading" items={shows.upcoming} />
-            <Subscribe />
+            <Subscribe
+              note={
+                shows.noteText || shows.noteLinkLabel ? (
+                  <>
+                    <span data-tina-field={tinaField(shows, "noteText")}>{shows.noteText}</span>
+                    <a href={shows.noteLinkHref ?? "#"} data-tina-field={tinaField(shows, "noteLinkLabel")}>
+                      {shows.noteLinkLabel}
+                    </a>
+                    .
+                  </>
+                ) : null
+              }
+            />
             {shows.past?.length ? (
               <div className={styles.pastBreak} aria-hidden="true">
                 <span className={styles.diamond} />
@@ -151,13 +163,6 @@ export default function Shows({ data }: { data: HomepageData }) {
             </div>
           </>
         ) : null}
-        <p className={styles.note}>
-          <span data-tina-field={tinaField(shows, "noteText")}>{shows?.noteText}</span>
-          <a href={shows?.noteLinkHref ?? "#"} data-tina-field={tinaField(shows, "noteLinkLabel")}>
-            {shows?.noteLinkLabel}
-          </a>
-          .
-        </p>
       </div>
     </section>
   );

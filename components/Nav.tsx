@@ -27,6 +27,16 @@ const OTHER_VENTURES: NavItem = {
       href: "https://melmccutcheon.royallepage.ca/",
       external: true,
     },
+    {
+      label: "Blackbird Outpost (Etsy)",
+      href: "https://www.etsy.com/ca/shop/BlackbirdOutpost",
+      external: true,
+    },
+    {
+      label: "Bare Hands Landscaping",
+      href: "https://www.facebook.com/BareHandsLandscaping",
+      external: true,
+    },
   ],
 };
 
