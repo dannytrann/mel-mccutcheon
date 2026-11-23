@@ -315,6 +315,7 @@ export default defineConfig({
             fields: [
               { type: "image", name: "image", label: "Image" },
               { type: "boolean", name: "big", label: "Large (2x2) tile" },
+              { type: "boolean", name: "wide", label: "Wide (2x1) tile" },
             ],
           },
           {

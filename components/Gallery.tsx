@@ -30,7 +30,7 @@ export default function Gallery({ data }: { data: HomepageData }) {
               key={i}
               href={item?.image ?? undefined}
               data-lightbox="gallery"
-              className={`${styles.item} ${item?.big ? styles.big : ""}`}
+              className={`${styles.item} ${item?.big ? styles.big : ""} ${item?.wide ? styles.wide : ""}`}
               data-tina-field={tinaField(item, "image")}
               aria-label="View photo"
             >
@@ -39,7 +39,7 @@ export default function Gallery({ data }: { data: HomepageData }) {
                   src={item.image}
                   alt={altFromFile(item.image)}
                   fill
-                  sizes="(max-width: 800px) 50vw, 25vw"
+                  sizes={item.big || item.wide ? "(max-width: 800px) 100vw, 50vw" : "(max-width: 800px) 50vw, 25vw"}
                 />
               )}
             </a>

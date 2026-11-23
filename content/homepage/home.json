@@ -37,10 +37,6 @@
         "position": "72% 30%"
       },
       {
-        "image": "/uploads/mel-band-pink-stage.jpg",
-        "position": "90% 40%"
-      },
-      {
         "image": "/uploads/mel-hand-raised-warm-light.jpg",
         "position": "70% 30%"
       },
@@ -257,43 +253,58 @@
   "gallery": [
     {
       "image": "/uploads/gallery-live-performance-wide.jpg",
-      "big": true
+      "big": true,
+      "wide": false
     },
     {
       "image": "/uploads/mel-singing-green-top.jpg",
-      "big": false
+      "big": false,
+      "wide": false
     },
     {
       "image": "/uploads/gallery-band-group-bw.jpeg",
-      "big": false
+      "big": false,
+      "wide": false
     },
     {
       "image": "/uploads/mel-purple-stage-light.jpg",
-      "big": false
+      "big": false,
+      "wide": false
     },
     {
       "image": "/uploads/mel-dancing-on-stage.jpg",
-      "big": false
+      "big": false,
+      "wide": false
     },
     {
       "image": "/uploads/quartet-blue-stage-mel.jpg",
-      "big": false
+      "big": false,
+      "wide": false
     },
     {
       "image": "/uploads/mel-hand-raised-warm-light.jpg",
-      "big": false
+      "big": false,
+      "wide": false
     },
     {
-      "image": "/uploads/sharp-seven-simms-pavilion.jpg",
-      "big": true
+      "image": "/uploads/mel-band-pink-stage.jpg",
+      "big": false,
+      "wide": true
     },
     {
       "image": "/uploads/mel-arms-outstretched.jpg",
-      "big": false
+      "big": false,
+      "wide": false
     },
     {
       "image": "/uploads/quartet-blue-stage-wide.jpg",
-      "big": false
+      "big": false,
+      "wide": false
+    },
+    {
+      "image": "/uploads/sharp-seven-simms-pavilion.jpg",
+      "big": false,
+      "wide": true
     }
   ],
   "contact": {

@@ -59,6 +59,11 @@
   grid-row: span 2;
 }
 
+/* Two columns wide, one row tall: suits landscape band shots. */
+.wide {
+  grid-column: span 2;
+}
+
 @media (max-width: 800px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
