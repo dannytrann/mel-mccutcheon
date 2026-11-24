@@ -41,3 +41,22 @@
   text-transform: uppercase;
   color: var(--color-text-muted);
 }
+
+/* Phones: shrink the email so the whole address fits on one line, and center the block */
+@media (max-width: 640px) {
+  .eyebrow {
+    text-align: center;
+  }
+
+  .inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.4rem;
+  }
+
+  .email {
+    font-size: calc((100vw - 4rem) / 15);
+    overflow-wrap: anywhere;
+  }
+}

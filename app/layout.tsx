@@ -28,10 +28,10 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
     images: [
       {
-        url: "/uploads/og-mel-arms-outstretched.jpg",
+        url: "/uploads/og-mel-profile-bw.jpg",
         width: 1200,
         height: 630,
-        alt: "Mel McCutcheon singing with her arms outstretched",
+        alt: "Black and white side profile of Mel McCutcheon",
       },
     ],
   },
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Mel McCutcheon | Jazz Vocalist on Vancouver Island",
     description: DESCRIPTION,
-    images: ["/uploads/og-mel-arms-outstretched.jpg"],
+    images: ["/uploads/og-mel-profile-bw.jpg"],
   },
 };
 

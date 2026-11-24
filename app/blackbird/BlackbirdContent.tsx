@@ -10,7 +10,6 @@ import footerStyles from "@/components/Footer.module.css";
 import SiteCredit from "@/components/SiteCredit";
 import ScrollReveal from "@/components/ScrollReveal";
 import Lightbox from "@/components/Lightbox";
-import InstagramEmbed from "./InstagramEmbed";
 import s from "./blackbird.module.css";
 
 const FB = "https://www.facebook.com/BlackbirdProductionsvanisle";
@@ -79,7 +78,7 @@ type Ev = {
   where: string;
   body: string;
   links: [string, string][];
-  embed?: string;
+  image?: [string, string];
 };
 
 const EVENTS: Ev[] = [
@@ -112,18 +111,8 @@ const EVENTS: Ev[] = [
       ["Get tickets on AdmitONE", ADMITONE],
       ["See the Facebook event", "https://www.facebook.com/events/1733905401011973/"],
     ],
-    embed: "https://www.instagram.com/p/Dd2lE5HipK2/",
+    image: ["/blackbird/sarah-stevenson.jpg", "Sarah Stevenson"],
   },
-];
-
-const REELS = [
-  ["https://www.instagram.com/reel/DfliPdhiytX/", "Sarah Stevenson sings I’ll Be Home for Christmas, her promo for the December 20 matinee."],
-  [
-    "https://www.instagram.com/reel/Df2ybwVDW53/",
-    "Katie Campbell and the MAKH Quartet perform Amy Winehouse’s Tears Dry On Their Own at 40 Knots, November 15. They met at soundcheck, ran it through once and a half, and played it live an hour later.",
-  ],
-  ["https://www.instagram.com/reel/DeqpRUnCSNA/", "The Valley Cats, live at 40 Knots, October 18."],
-  ["https://www.instagram.com/reel/Dd2K0tvy8QP/", "Malakai, live at 40 Knots, October 18."],
 ];
 
 const SESSIONS = [
@@ -204,28 +193,40 @@ const CREW = [
   ["Katie Campbell", "Sound, Ridiculous Sound Solutions"],
 ];
 
-type Venue = { name: string; address: string; body: string; photo?: [string, string, string] };
+// logo: [src, background behind it, fit]. "cover" fills the panel (for square tiles), "contain" sits inside it.
+type Venue = { name: string; address: string; body: string; logo?: [string, string, "contain" | "cover"] };
 
 const VENUES: Venue[] = [
   {
     name: "40 Knots Winery",
     address: "2400 Anderton Road, Comox",
     body: "Home of the Sunday matinees. A coastal vineyard above the Salish Sea, wines made from 100 percent Comox grapes, 90 percent estate grown, plus four ciders. In October 2026 it was acquired by the K’omoks Economic Development Corporation, making it Canada’s second Indigenous-owned winery.",
-    photo: ["/blackbird/40knots-patio.jpg", "The 40 Knots Winery patio", "British Columbia Magazine"],
+    logo: ["/blackbird/logos/40-knots.png", "var(--color-bg-alt)", "contain"],
   },
   {
     name: "Rivercity Players",
     address: "1080 Hemlock Street, Campbell River",
     body: "Home of the very first Jazz Session on November 22, 2025.",
-    photo: ["/blackbird/rivercity-mural.jpg", "The Rivercity Players mural", "Rivercity Players mural, painted by Dan Rickey, 2012"],
+    logo: ["/blackbird/logos/rivercity-players.png", "#911934", "cover"],
   },
   {
     name: "The Mex Pub",
     address: "1001 Ryan Road, Courtenay",
     body: "Home of the Jazz Nights and the Jazz Jams, with the generous support of The Mex Pub and Grill.",
+    logo: ["/blackbird/logos/the-mex.png", "#14242c", "contain"],
   },
-  { name: "Painter’s Lodge", address: "Campbell River", body: "Hosted the Valentine’s Lunch Matinee on February 14, 2026." },
-  { name: "Little Red Church", address: "Comox", body: "Hosted One Winter Night 4 on February 7, 2026." },
+  {
+    name: "Painter’s Lodge",
+    address: "Campbell River",
+    body: "Hosted the Valentine’s Lunch Matinee on February 14, 2026.",
+    logo: ["/blackbird/logos/painters-lodge.png", "#f4efe6", "contain"],
+  },
+  {
+    name: "Little Red Church",
+    address: "Comox",
+    body: "Hosted One Winter Night 4 on February 7, 2026.",
+    logo: ["/blackbird/logos/little-red-church.png", "#fff", "contain"],
+  },
 ];
 
 const SEASON = [
@@ -395,32 +396,14 @@ export default function BlackbirdContent({ data }: { data: HomepageData }) {
                     ))}
                   </div>
                 </div>
-                {ev.embed ? (
+                {ev.image ? (
                   <div className={s.eventEmbed}>
-                    <InstagramEmbed url={ev.embed} caption="Sarah Stevenson Trio flyer" />
+                    <Image src={ev.image[0]} alt={ev.image[1]} width={1600} height={800} sizes="(max-width: 900px) 100vw, 340px" />
                   </div>
                 ) : null}
               </article>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Watch */}
-      <section id="watch" className={s.section}>
-        <div className={s.wrap}>
-          <Head eyebrow="Watch and listen" title="Clips from the stage" sub="Posted by Blackbird and the artists." />
-          <div className={s.reels}>
-            {REELS.map(([url, caption]) => (
-              <figure key={url} className={s.reel}>
-                <InstagramEmbed url={url} caption={caption} />
-                <figcaption>{caption}</figcaption>
-              </figure>
-            ))}
-          </div>
-          <p className={s.more}>
-            <Ext href={`${FB}/reels`}>More reels on Facebook →</Ext>
-          </p>
         </div>
       </section>
 
@@ -545,13 +528,10 @@ export default function BlackbirdContent({ data }: { data: HomepageData }) {
           <div className={s.grid}>
             {VENUES.map((v) => (
               <div key={v.name} className={s.item}>
-                {v.photo ? (
-                  <>
-                    <a href={v.photo[0]} data-lightbox="blackbird" className={s.photo} aria-label={`View photo of ${v.name}`}>
-                      <Image src={v.photo[0]} alt={v.photo[1]} fill sizes="(max-width: 800px) 100vw, 380px" />
-                    </a>
-                    <div className={s.photoCredit}>Photo: {v.photo[2]}</div>
-                  </>
+                {v.logo ? (
+                  <div className={`${s.logoPanel} ${v.logo[2] === "cover" ? s.logoCover : ""}`} style={{ background: v.logo[1] }}>
+                    <Image src={v.logo[0]} alt={`${v.name} logo`} fill sizes="(max-width: 800px) 100vw, 380px" />
+                  </div>
                 ) : (
                   <div className={s.placeholderPhoto} aria-hidden="true">
                     {initials(v.name)}
