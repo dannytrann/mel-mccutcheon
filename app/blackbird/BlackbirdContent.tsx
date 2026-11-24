@@ -111,7 +111,7 @@ const EVENTS: Ev[] = [
       ["Get tickets on AdmitONE", ADMITONE],
       ["See the Facebook event", "https://www.facebook.com/events/1733905401011973/"],
     ],
-    image: ["/blackbird/sarah-stevenson.jpg", "Sarah Stevenson"],
+    image: ["/blackbird/sarah-stevenson-trio-flyer.jpg", "Flyer for The Sarah Stevenson Trio with opening act Aegean, Sunday December 20 at 40 Knots Winery"],
   },
 ];
 
@@ -398,7 +398,7 @@ export default function BlackbirdContent({ data }: { data: HomepageData }) {
                 </div>
                 {ev.image ? (
                   <div className={s.eventEmbed}>
-                    <Image src={ev.image[0]} alt={ev.image[1]} width={1600} height={800} sizes="(max-width: 900px) 100vw, 340px" />
+                    <Image src={ev.image[0]} alt={ev.image[1]} width={1080} height={1080} sizes="(max-width: 900px) 100vw, 340px" />
                   </div>
                 ) : null}
               </article>
