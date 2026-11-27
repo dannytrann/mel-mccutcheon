@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { tinaField } from "tinacms/dist/react";
 import type { HomepageData } from "@/lib/tina-types";
-import { BLACKBIRD_SECTIONS } from "@/lib/blackbird-sections";
 import styles from "./Nav.module.css";
 
 type NavChild = { label: string; href: string; external?: boolean };
@@ -14,8 +13,6 @@ export type NavItem = {
   children?: NavChild[];
   tina?: unknown;
 };
-
-const BLACKBIRD_HREF = "/blackbird";
 
 // Code-defined entry (not in Tina) for Mel's other work, inserted before Contact.
 const OTHER_VENTURES: NavItem = {
@@ -40,8 +37,7 @@ const OTHER_VENTURES: NavItem = {
   ],
 };
 
-// The homepage's Tina-managed links; the "Blackbird Productions" entry gets
-// a dropdown of that page's sections. `base` lets other pages (e.g.
+// The homepage's Tina-managed links. `base` lets other pages (e.g.
 // /blackbird) reuse the same header: in-page "#x" links become "/#x".
 export default function Nav({
   data,
@@ -60,16 +56,6 @@ export default function Nav({
       label: link?.label ?? "",
       href: resolve(href),
       tina: link,
-      children:
-        href === BLACKBIRD_HREF
-          ? [
-              { label: "Overview", href: BLACKBIRD_HREF },
-              ...BLACKBIRD_SECTIONS.map((s) => ({
-                label: s.label,
-                href: `${BLACKBIRD_HREF}#${s.id}`,
-              })),
-            ]
-          : undefined,
     };
   });
   const contactAt = links.findIndex((l) => l.href.endsWith("#contact"));
