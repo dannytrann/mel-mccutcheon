@@ -27,17 +27,12 @@ function todayPacific(now: Date) {
 }
 
 // UTC offset like "-08:00" for a Pacific wall-clock date (handles DST).
-// Computed from BC's DST rule (second Sunday of March to first Sunday of
-// November) rather than Intl, whose timezone data on Vercel gave -07:00 in
-// December.
+// B.C. moved to permanent UTC-7 ("Pacific time") after the clocks went forward
+// on March 8, 2026, so every show from then on is -07:00. Hard-coded rather
+// than read from Intl because older timezone data (e.g. a dev machine's Node)
+// still falls back to -08:00 in winter.
 function pacificOffset(y: number, m: number, d: number) {
-  const nthSunday = (month: number, n: number) => {
-    const first = new Date(Date.UTC(y, month - 1, 1)).getUTCDay();
-    return 1 + ((7 - first) % 7) + 7 * (n - 1);
-  };
-  const key = m * 100 + d;
-  const dst = key >= 300 + nthSunday(3, 2) && key < 1100 + nthSunday(11, 1);
-  return dst ? "-07:00" : "-08:00";
+  return y * 10000 + m * 100 + d >= 20260308 ? "-07:00" : "-08:00";
 }
 
 // Start time from free text like "Sunday, 2:00 PM", "Thursday, 6–8 PM" or
