@@ -11,12 +11,17 @@ import SiteCredit from "@/components/SiteCredit";
 import ScrollReveal from "@/components/ScrollReveal";
 import Lightbox from "@/components/Lightbox";
 import s from "./blackbird.module.css";
+import sh from "@/components/Shows.module.css";
+import follow from "@/components/Subscribe.module.css";
 
 const FB = "https://www.facebook.com/BlackbirdProductionsvanisle";
 const ALBUMS = `${FB}/photos_albums`;
 
 const ADMITONE = "https://admitone.com/events/comox/community/music/the-sarah-stevenson-trio-aegean/P36NYF";
 const EVENTBRITE = "https://www.eventbrite.com/cc/winter-jazz-sessions-no1-6-4753763/";
+const MEX = "The Mex Pub, Courtenay";
+const KNOTS = "40 Knots Winery, Comox";
+const fbEvent = (id: string) => `https://www.facebook.com/events/${id}/`;
 const INSTAGRAM = "https://www.instagram.com/productionsbyblackbird/";
 const EMAIL = "productionsbyblackbird@gmail.com";
 const PHONE = "(236) 508-2897";
@@ -38,15 +43,6 @@ function Head({ eyebrow, title, sub }: { eyebrow: string; title: string; sub?: s
     </div>
   );
 }
-
-const initials = (name: string) =>
-  name
-    .replace(/^The /, "")
-    .split(/\s+/)
-    .map((w) => w[0])
-    .join("")
-    .slice(0, 3)
-    .toUpperCase();
 
 // [name, schedule, admission, body]
 const ABOUT_CARDS = [
@@ -70,116 +66,104 @@ const ABOUT_CARDS = [
   ],
 ];
 
-type Ev = {
+// One row in the Shows & Events list, laid out like Show Updates on the homepage.
+type Show = {
   day: string;
   month: string;
   title: string;
-  when: string;
-  where: string;
-  body: string;
-  links: [string, string][];
-  image?: [string, string];
+  venue: string;
+  meta: string;
+  details?: string;
+  tickets?: string;
+  poster?: string;
 };
 
-const EVENTS: Ev[] = [
+const UPCOMING: Show[] = [
   {
     day: "26",
     month: "Nov",
     title: "Jazz Jam",
-    when: "Thursday, November 26, 2026, 6 to 8 pm",
-    where: "The Mex Pub, 1001 Ryan Road, Courtenay",
-    body: "Co-hosted by Beau Stocker. An open jazz jam, not an open mic. A host band that changes each session, sign up with jam band manager Mel McCutcheon, two tunes per turn. Under 18 students are welcome in the Young Artist Hang. Backline provided: upright bass, guitar amp, keyboard, drum kit and microphone.",
-    links: [["See the Facebook event", "https://www.facebook.com/events/1490374866267275/"]],
-    image: ["/blackbird/jazz-jam-2026-11-26-poster.jpg", "Poster for Jazz Jams at The Mex, November 26, 6 to 8 pm, host band John Hyde, Paoul Gagnon and Tony Toly"],
+    venue: MEX,
+    meta: "Thursday, November 26, 6 to 8 pm · Suggested donation $5 to $20",
+    details: fbEvent("1490374866267275"),
+    poster: "/blackbird/jazz-jam-2026-11-26-poster.jpg",
   },
   {
     day: "10",
     month: "Dec",
-    title: "Jazz Night, Swingin’ Christmas",
-    when: "Thursday, December 10, 2026, 6 to 8 pm",
-    where: "The Mex Pub, 1001 Ryan Road, Courtenay",
-    body: "Mel McCutcheon and Melissa Thibeault, with Beau Stocker, John Hyde and Rick Jamison. Jazzy Christmas favourites and timeless standards. Kitchen open till 9:30 pm. Suggested donation $5 to $20.",
-    links: [["See the Facebook event", "https://www.facebook.com/events/1065221926539062/"]],
-    image: ["/blackbird/swingin-christmas-2026-12-10-poster.jpg", "Poster for Jazz Night at The Mex, Swingin’ Christmas, Thursday December 10, 6 to 8 pm"],
+    title: "Jazz Night: Swingin’ Christmas",
+    venue: MEX,
+    meta: "Thursday, December 10, 6 to 8 pm · Suggested donation $5 to $20",
+    details: fbEvent("1065221926539062"),
+    poster: "/blackbird/swingin-christmas-2026-12-10-poster.jpg",
   },
   {
     day: "20",
     month: "Dec",
     title: "The Sarah Stevenson Trio, Christmas Matinee",
-    when: "Sunday, December 20, 2026, 1:30 to 3:30 pm, doors 12:30 pm",
-    where: "40 Knots Winery, 2400 Anderton Road, Comox",
-    body: "Sarah Stevenson on vocals, Andrew Janusson on guitar, Drake Shoemaker on bass. Opening act Aegean, a six-piece jazz group from the jazz program at Capilano University, many of its members with roots in the Comox Valley. Soup and roll, full bar, all ages. Sarah’s only Vancouver Island holiday show.",
-    links: [
-      ["Get tickets on AdmitONE", ADMITONE],
-      ["See the Facebook event", "https://www.facebook.com/events/1733905401011973/"],
-    ],
-    image: ["/blackbird/sarah-stevenson-trio-flyer.jpg", "Flyer for The Sarah Stevenson Trio with opening act Aegean, Sunday December 20 at 40 Knots Winery"],
+    venue: KNOTS,
+    meta: "Sunday, December 20, 1:30 pm, doors 12:30 pm",
+    details: fbEvent("1733905401011973"),
+    tickets: ADMITONE,
+    poster: "/blackbird/sarah-stevenson-trio-flyer.jpg",
   },
 ];
 
-const SESSIONS = [
-  ["1", "Late Fall, Smooth Call", "Saturday, November 22, 2025", "The Mel McCutcheon Quartet, with two opening acts. Rivercity Players, Campbell River."],
-  ["2", "Afternoon Groove", "Saturday, December 6, 2025", "The Drummond-Stocker Duo. 40 Knots Winery."],
-  ["3", "Take Five Below", "Saturday, January 10, 2026", "The Sharp Seven. 40 Knots Winery."],
-  [
-    "4",
-    "Sunday Swing",
-    "Sunday, February 15, 2026",
-    "Melissa Thibeault on vocals and Rick Jamison on guitar, with Drake Shoemaker. Presented with the Georgia Straight Jazz Society. 40 Knots Winery.",
-  ],
-  ["5", "Tribute to Cole Porter", "Sunday, March 1, 2026", "Amy and Her Accomplices. 40 Knots Winery."],
-  ["6", "Syncopated Sunday", "Sunday, March 15, 2026", "Anderson Jazz Trio. 40 Knots Winery."],
+const P = "/blackbird/shows/";
+
+const PAST: Show[] = [
+  { day: "15", month: "Nov", title: "Matinee with The MAKH Quartet and Katie Campbell", venue: KNOTS, meta: "Sunday, November 15, 2026", details: fbEvent("28325456410467145"), poster: `${P}2026-11-15-makh-quartet.jpg` },
+  { day: "12", month: "Nov", title: "Jazz Night with The Sharp Seven", venue: MEX, meta: "Thursday, November 12, 2026", details: fbEvent("1714855223770243"), poster: `${P}2026-11-12-sharp-seven.jpg` },
+  { day: "22", month: "Oct", title: "Jazz Jam", venue: MEX, meta: "Thursday, October 22, 2026", details: fbEvent("1106365731975151"), poster: `${P}2026-10-22-jazz-jam.jpg` },
+  { day: "18", month: "Oct", title: "Matinee with The Valley Cats and Malakai", venue: KNOTS, meta: "Sunday, October 18, 2026", details: fbEvent("1085395997786628"), poster: `${P}2026-10-18-valley-cats.jpg` },
+  { day: "8", month: "Oct", title: "Jazz Night with Beau Stocker and Friends", venue: MEX, meta: "Thursday, October 8, 2026", details: fbEvent("2822356178145973"), poster: `${P}2026-10-08-beau-stocker-friends.jpg` },
+  { day: "24", month: "Sep", title: "Jazz Jam", venue: MEX, meta: "Thursday, September 24, 2026", details: fbEvent("3495772673917613"), poster: `${P}2026-09-24-jazz-jam.jpg` },
+  { day: "10", month: "Sep", title: "Jazz Night with Beau Stocker and Friends", venue: MEX, meta: "Thursday, September 10, 2026", details: fbEvent("1663303729133191"), poster: `${P}2026-09-10-beau-stocker-friends.jpg` },
+  { day: "15", month: "Mar", title: "Jazz Session No. 6: Syncopated Sunday, Anderson Jazz Trio", venue: KNOTS, meta: "Sunday, March 15, 2026", details: fbEvent("4288092601412757"), poster: `${P}2026-03-15-session-6-anderson-jazz-trio.jpg` },
+  { day: "1", month: "Mar", title: "Jazz Session No. 5: Tribute to Cole Porter, Amy and Her Accomplices", venue: KNOTS, meta: "Sunday, March 1, 2026", details: EVENTBRITE, poster: `${P}2026-03-01-session-5-cole-porter.jpg` },
+  { day: "15", month: "Feb", title: "Jazz Session No. 4: Sunday Swing, Melissa Thibeault, Rick Jamison and Drake Shoemaker", venue: KNOTS, meta: "Sunday, February 15, 2026", details: EVENTBRITE, poster: `${P}2026-02-15-session-4-sunday-swing.jpg` },
+  { day: "10", month: "Jan", title: "Jazz Session No. 3: Take Five Below, The Sharp Seven", venue: KNOTS, meta: "Saturday, January 10, 2026" },
+  { day: "6", month: "Dec", title: "Jazz Session No. 2: Afternoon Groove, The Drummond-Stocker Duo", venue: KNOTS, meta: "Saturday, December 6, 2025" },
+  { day: "22", month: "Nov", title: "Jazz Session No. 1: Late Fall, Smooth Call, The Mel McCutcheon Quartet", venue: "Rivercity Players, Campbell River", meta: "Saturday, November 22, 2025, the very first Blackbird show" },
 ];
 
-const ARTISTS = [
-  [
-    "Sarah Stevenson",
-    "Vocals",
-    "Nanaimo born, now making waves in Montreal’s jazz scene. Two DownBeat Magazine Awards at just 21 years old, and a performance at the Montreal International Jazz Festival. Smooth, silky vocals and fresh interpretations of jazz classics.",
-  ],
-  [
-    "Katie Campbell",
-    "Vocals and songwriter",
-    "Born and raised on Vancouver Island. She found her voice at 34, fronted her first band Live Edge, and stepped into the spotlight at 38 with her own original music. Five EPs, more than 200,000 Spotify streams, and over 10,000 TikTok followers. She also holds a Live Sound Technician Certification from Berklee College of Music and runs sound at the Mex Pub jams under her business Ridiculous Sound Solutions.",
-  ],
-  [
-    "Melissa Thibeault",
-    "Vocals",
-    "Soulful vocals at the Sunday Swing matinee and the Swingin’ Christmas night. Her French set at the very first Blackbird concert is still talked about in the reviews.",
-  ],
-  [
-    "Malakai",
-    "Singer-songwriter",
-    "A young Duncan, BC musician whose songwriting and musicianship belie his years. Folk, soul and contemporary influences, an intimate and expressive style. He opened the fall season at 40 Knots on October 18.",
-  ],
-  [
-    "The Valley Cats",
-    "Jazz, R&B and funk",
-    "A six-piece Comox Valley band bringing jazz, R&B and funk: Charity Munro on vocals, Mike Berman on drums, Mike Eddy on keys, Grahame Edwards on bass, Jeff Agopsowicz on trombone, Dave Lymbuner on trumpet, with special guest Rachel Cooper on sax and clarinet.",
-  ],
-  [
-    "The MAKH Quartet",
-    "Quartet",
-    "Brock Meades on bass, Eryn Krieger on trumpet and vocals, Michael Anderson on guitar and vocals, Ronin Hutton on drums. Jazz, funk, country, classical and world music in one adventurous, accessible sound. Michael is Nanaimo based, rhythm guitarist and vocalist for String Fever. Eryn is from Salt Spring Island and draws on Miles Davis, Chet Baker and Clark Terry.",
-  ],
-];
-
-const ALSO = [
-  "Mel McCutcheon (quartet leader, jam band manager and host)",
-  "Beau Stocker (drummer, Jazz Night host and sound engineer)",
-  "The Sharp Seven",
-  "Anderson Jazz Trio",
-  "Amy and Her Accomplices",
-  "Aegean (Capilano University jazz program)",
-  "Drummond-Stocker Duo",
-  "Rick Jamison (guitar)",
-  "Drake Shoemaker (bass)",
-  "John Hyde (bass)",
-  "Andrew Janusson (guitar)",
-  "Brett Jardine (guitar)",
-  "Island Standard Time",
-  "Mood Swings",
-];
+function ShowRow({ ev }: { ev: Show }) {
+  return (
+    <article className={sh.upcomingRow}>
+      {ev.poster ? (
+        <a href={ev.poster} data-lightbox="blackbird-posters" className={sh.poster} aria-label={`View poster for ${ev.title}`}>
+          <Image src={ev.poster} alt={`Poster: ${ev.title}`} fill sizes="112px" />
+        </a>
+      ) : (
+        // Empty frame keeps the date column lined up with rows that have a poster.
+        <div className={sh.poster} style={{ cursor: "default" }} aria-hidden="true" />
+      )}
+      <div className={sh.date}>
+        <span className={sh.day}>{ev.day}</span>
+        <span className={sh.month}>{ev.month}</span>
+      </div>
+      <div className={sh.info}>
+        <div className={sh.showTitle}>{ev.title}</div>
+        <div className={sh.venue}>
+          <span className={sh.venueName}>{ev.venue}</span>
+        </div>
+        <div className={sh.meta}>{ev.meta}</div>
+      </div>
+      <div className={sh.actions}>
+        {ev.details ? (
+          <Ext href={ev.details} className={sh.pill}>
+            Details
+          </Ext>
+        ) : null}
+        {ev.tickets ? (
+          <Ext href={ev.tickets} className={sh.pill}>
+            Tickets
+          </Ext>
+        ) : null}
+      </div>
+    </article>
+  );
+}
 
 const PHOTOGRAPHERS = [
   ["Wilf Meier", "Volunteer photographer"],
@@ -193,55 +177,6 @@ const PHOTOGRAPHERS = [
 const CREW = [
   ["Steve Ray and Rocky Fahr", "Lighting"],
   ["Katie Campbell", "Sound, Ridiculous Sound Solutions"],
-];
-
-// logo: [src, background behind it, fit]. "cover" fills the panel (for square tiles), "contain" sits inside it.
-type Venue = { name: string; address: string; body: string; logo?: [string, string, "contain" | "cover"] };
-
-const VENUES: Venue[] = [
-  {
-    name: "40 Knots Winery",
-    address: "2400 Anderton Road, Comox",
-    body: "Home of the Sunday matinees. A coastal vineyard above the Salish Sea, wines made from 100 percent Comox grapes, 90 percent estate grown, plus four ciders. In October 2026 it was acquired by the K’omoks Economic Development Corporation, making it Canada’s second Indigenous-owned winery.",
-    logo: ["/blackbird/logos/40-knots.png", "var(--color-bg-alt)", "contain"],
-  },
-  {
-    name: "Rivercity Players",
-    address: "1080 Hemlock Street, Campbell River",
-    body: "Home of the very first Jazz Session on November 22, 2025.",
-    logo: ["/blackbird/logos/rivercity-players.png", "#911934", "cover"],
-  },
-  {
-    name: "The Mex Pub",
-    address: "1001 Ryan Road, Courtenay",
-    body: "Home of the Jazz Nights and the Jazz Jams, with the generous support of The Mex Pub and Grill.",
-    logo: ["/blackbird/logos/the-mex.png", "#14242c", "contain"],
-  },
-  {
-    name: "Painter’s Lodge",
-    address: "Campbell River",
-    body: "Hosted the Valentine’s Lunch Matinee on February 14, 2026.",
-    logo: ["/blackbird/logos/painters-lodge.png", "#f4efe6", "contain"],
-  },
-  {
-    name: "Little Red Church",
-    address: "Comox",
-    body: "Hosted One Winter Night 4 on February 7, 2026.",
-    logo: ["/blackbird/logos/little-red-church.png", "#fff", "contain"],
-  },
-];
-
-const SEASON = [
-  ["Nov 15, 2026", "Matinee with The MAKH Quartet and Katie Campbell, 40 Knots Winery"],
-  ["Nov 12, 2026", "Jazz Night with The Sharp Seven, The Mex Pub"],
-  ["Oct 22, 2026", "Jazz Jam, The Mex Pub"],
-  ["Oct 18, 2026", "Matinee with The Valley Cats and Malakai, 40 Knots Winery"],
-  ["Oct 8, 2026", "Jazz Night with Beau Stocker and Friends, The Mex Pub"],
-  ["Sep 24, 2026", "Jazz Jam, The Mex Pub"],
-  ["Sep 10, 2026", "Beau Stocker and Friends, The Mex Pub"],
-  ["Feb 28, 2026", "Island Standard Time matinee, sold out"],
-  ["Feb 14, 2026", "Valentine’s Lunch Matinee, Painter’s Lodge, Campbell River"],
-  ["Feb 7, 2026", "One Winter Night 4, Little Red Church, Comox"],
 ];
 
 const QUOTES = [
@@ -279,7 +214,7 @@ export default function BlackbirdContent({ data }: { data: HomepageData }) {
             Live jazz, taking flight on Vancouver Island, one Sunday matinee at a time.
           </p>
           <div className={s.ctaRow}>
-            <a href="#upcoming" className={`${s.btn} ${s.btnSolid}`}>
+            <a href="#shows" className={`${s.btn} ${s.btnSolid}`}>
               See what’s coming up
             </a>
             <Ext href={FB} className={s.btn}>
@@ -370,117 +305,38 @@ export default function BlackbirdContent({ data }: { data: HomepageData }) {
         </div>
       </section>
 
-      {/* Upcoming */}
-      <section id="upcoming" className={s.section}>
+      {/* Shows & Events: same layout as Show Updates on the homepage */}
+      <section id="shows" className={s.section}>
         <div className={s.wrap}>
-          <Head
-            eyebrow="Upcoming"
-            title="Coming up next"
-            sub="Three dates on the calendar. Details change, so check the Facebook Page before you head out."
-          />
-          <div className={s.rows}>
-            {EVENTS.map((ev) => (
-              <article key={ev.title} className={s.eventRow}>
-                <div className={s.date}>
-                  <span className={s.day}>{ev.day}</span>
-                  <span className={s.month}>{ev.month}</span>
-                </div>
-                <div className={s.info}>
-                  <div className={s.showTitle}>{ev.title}</div>
-                  <div className={s.venue}>{ev.where}</div>
-                  <div className={s.meta}>{ev.when}</div>
-                  <p className={s.eventBody}>{ev.body}</p>
-                  <div className={s.actions}>
-                    {ev.links.map(([label, href]) => (
-                      <Ext key={href} href={href} className={s.pill}>
-                        {label}
-                      </Ext>
-                    ))}
-                  </div>
-                </div>
-                {ev.image ? (
-                  <div className={s.eventEmbed}>
-                    <Image src={ev.image[0]} alt={ev.image[1]} width={1080} height={1080} sizes="(max-width: 900px) 100vw, 340px" />
-                  </div>
-                ) : null}
-              </article>
+          <Head eyebrow="Shows & Events" title="Coming up next" />
+          <h3 className={sh.subheading}>Upcoming</h3>
+          <div className={sh.upcomingList}>
+            {UPCOMING.map((ev) => (
+              <ShowRow key={ev.title} ev={ev} />
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Winter Jazz Sessions */}
-      <section id="sessions" className={s.section}>
-        <div className={s.wrap}>
-          <Head
-            eyebrow="Where it started"
-            title="The Winter Jazz Sessions"
-            sub="Six Sunday matinees that started it all, November 2025 to March 2026. The first at Rivercity Players in Campbell River, the rest at 40 Knots Winery in Comox."
-          />
-          <div className={s.rows}>
-            {SESSIONS.map(([no, name, date, body]) => (
-              <div key={no} className={s.sessionRow}>
-                <div className={s.date}>
-                  <span className={s.month}>No.</span>
-                  <span className={s.day}>{no}</span>
-                </div>
-                <div className={s.info}>
-                  <div className={s.showTitle}>{date}</div>
-                  <div className={s.venue}>
-                    <span className={s.venueName}>{name}</span>
-                  </div>
-                  <div className={s.meta}>{body}</div>
-                </div>
-              </div>
+          <div className={follow.box}>
+            <div>
+              <h3 className={follow.title}>Never miss a show</h3>
+              <p className={follow.text}>
+                Every new date, poster and photo goes up on the Blackbird Productions Facebook page first.
+              </p>
+            </div>
+            <div>
+              <Ext href={FB} className={follow.button}>
+                Follow on Facebook
+              </Ext>
+            </div>
+          </div>
+          <div className={sh.pastBreak} aria-hidden="true">
+            <span className={sh.diamond} />
+          </div>
+          <h3 className={sh.subheading}>Past Shows</h3>
+          <div className={`${sh.upcomingList} ${sh.pastList}`}>
+            {PAST.map((ev) => (
+              <ShowRow key={ev.title + ev.meta} ev={ev} />
             ))}
           </div>
-          <p className={s.more}>
-            <Ext href={EVENTBRITE}>The full series on Eventbrite →</Ext>
-          </p>
-        </div>
-      </section>
-
-      {/* Season */}
-      <section id="season" className={s.section}>
-        <div className={s.wrap}>
-          <Head eyebrow="Since the sessions" title="The season so far" sub="Every other show Blackbird has put on, newest first." />
-          <div className={s.list}>
-            {SEASON.map(([date, what]) => (
-              <div key={date + what} className={s.row}>
-                <div className={s.venue}>{what}</div>
-                <div className={s.tag}>{date}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Artists */}
-      <section id="artists" className={s.section}>
-        <div className={s.wrap}>
-          <Head
-            eyebrow="The singers and musicians"
-            title="The voices and the players"
-            sub="Accomplished musicians, emerging artists and students, all on the same stage. That mix is the whole point of Blackbird."
-          />
-          <div className={s.grid}>
-            {ARTISTS.map(([name, role, bio]) => (
-              <div key={name} className={s.item}>
-                <div className={s.placeholder} aria-hidden="true">
-                  {initials(name)}
-                </div>
-                <h3 className={s.name}>{name}</h3>
-                <div className={s.role}>{role}</div>
-                <p className={s.description}>{bio}</p>
-              </div>
-            ))}
-          </div>
-          <div className={s.subheading}>Also on the Blackbird stage</div>
-          <ul className={s.also}>
-            {ALSO.map((n) => (
-              <li key={n}>{n}</li>
-            ))}
-          </ul>
         </div>
       </section>
 
@@ -519,31 +375,6 @@ export default function BlackbirdContent({ data }: { data: HomepageData }) {
             <Ext href={ALBUMS} className={s.pill}>
               Browse the photo albums on Facebook
             </Ext>
-          </div>
-        </div>
-      </section>
-
-      {/* Venues */}
-      <section id="venues" className={s.section}>
-        <div className={s.wrap}>
-          <Head eyebrow="The venues" title="Where the music happens" sub="A winery, a theatre, a pub, a lodge and a little red church." />
-          <div className={s.grid}>
-            {VENUES.map((v) => (
-              <div key={v.name} className={s.item}>
-                {v.logo ? (
-                  <div className={`${s.logoPanel} ${v.logo[2] === "cover" ? s.logoCover : ""}`} style={{ background: v.logo[1] }}>
-                    <Image src={v.logo[0]} alt={`${v.name} logo`} fill sizes="(max-width: 800px) 100vw, 380px" />
-                  </div>
-                ) : (
-                  <div className={s.placeholderPhoto} aria-hidden="true">
-                    {initials(v.name)}
-                  </div>
-                )}
-                <h3 className={s.name}>{v.name}</h3>
-                <div className={s.role}>{v.address}</div>
-                <p className={s.description}>{v.body}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
