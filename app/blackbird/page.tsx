@@ -72,7 +72,7 @@ const blackbirdJsonLd = {
       "2026-11-26T18:00:00-08:00",
       "2026-11-26T20:00:00-08:00",
       MEX,
-      BLACKBIRD.facebook,
+      "https://www.facebook.com/events/1490374866267275/",
     ),
     event(
       "Jazz Night, Swingin’ Christmas",

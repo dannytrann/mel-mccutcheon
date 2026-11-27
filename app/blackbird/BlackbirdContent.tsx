@@ -89,7 +89,8 @@ const EVENTS: Ev[] = [
     when: "Thursday, November 26, 2026, 6 to 8 pm",
     where: "The Mex Pub, 1001 Ryan Road, Courtenay",
     body: "Co-hosted by Beau Stocker. An open jazz jam, not an open mic. A host band that changes each session, sign up with jam band manager Mel McCutcheon, two tunes per turn. Under 18 students are welcome in the Young Artist Hang. Backline provided: upright bass, guitar amp, keyboard, drum kit and microphone.",
-    links: [["See it on Facebook", FB]],
+    links: [["See the Facebook event", "https://www.facebook.com/events/1490374866267275/"]],
+    image: ["/blackbird/jazz-jam-2026-11-26-poster.jpg", "Poster for Jazz Jams at The Mex, November 26, 6 to 8 pm, host band John Hyde, Paoul Gagnon and Tony Toly"],
   },
   {
     day: "10",
@@ -99,6 +100,7 @@ const EVENTS: Ev[] = [
     where: "The Mex Pub, 1001 Ryan Road, Courtenay",
     body: "Mel McCutcheon and Melissa Thibeault, with Beau Stocker, John Hyde and Rick Jamison. Jazzy Christmas favourites and timeless standards. Kitchen open till 9:30 pm. Suggested donation $5 to $20.",
     links: [["See the Facebook event", "https://www.facebook.com/events/1065221926539062/"]],
+    image: ["/blackbird/swingin-christmas-2026-12-10-poster.jpg", "Poster for Jazz Night at The Mex, Swingin’ Christmas, Thursday December 10, 6 to 8 pm"],
   },
   {
     day: "20",
