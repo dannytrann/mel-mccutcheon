@@ -27,11 +27,17 @@ function todayPacific(now: Date) {
 }
 
 // UTC offset like "-08:00" for a Pacific wall-clock date (handles DST).
+// Computed from BC's DST rule (second Sunday of March to first Sunday of
+// November) rather than Intl, whose timezone data on Vercel gave -07:00 in
+// December.
 function pacificOffset(y: number, m: number, d: number) {
-  const name = new Intl.DateTimeFormat("en-US", { timeZone: TZ, timeZoneName: "longOffset" })
-    .formatToParts(new Date(Date.UTC(y, m - 1, d, 20)))
-    .find((p) => p.type === "timeZoneName")?.value;
-  return name?.replace("GMT", "") || "-08:00";
+  const nthSunday = (month: number, n: number) => {
+    const first = new Date(Date.UTC(y, month - 1, 1)).getUTCDay();
+    return 1 + ((7 - first) % 7) + 7 * (n - 1);
+  };
+  const key = m * 100 + d;
+  const dst = key >= 300 + nthSunday(3, 2) && key < 1100 + nthSunday(11, 1);
+  return dst ? "-07:00" : "-08:00";
 }
 
 // Start time from free text like "Sunday, 2:00 PM", "Thursday, 6–8 PM" or
