@@ -4,39 +4,67 @@ import PageStatic from "./page-static";
 import fallbackData from "@/content/homepage/home.json";
 import type { HomepageData } from "@/lib/tina-types";
 import { MEL, SITE_URL, jsonLd } from "@/lib/site";
+import { PERSON_DESCRIPTION, showEvents, type ShowLike } from "@/lib/seo";
 
-const homeJsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Person",
-      "@id": `${SITE_URL}/#mel`,
-      name: MEL.name,
-      url: `${SITE_URL}/`,
-      image: `${SITE_URL}/uploads/hero-mel-singing.jpg`,
-      jobTitle: "Jazz Vocalist",
-      description: "Jazz vocalist on Vancouver Island, BC. Fronts The Sharp Seven and leads the Mel McCutcheon Ensembles.",
-      email: `mailto:${MEL.bookingEmail}`,
-      homeLocation: { "@type": "Place", name: "Vancouver Island, British Columbia, Canada" },
-      memberOf: [
-        { "@type": "MusicGroup", name: "The Sharp Seven", genre: "Jazz" },
-        { "@type": "MusicGroup", name: "Vintage Velvet", genre: "Jazz" },
-      ],
-      sameAs: [MEL.instagram, MEL.realEstate],
-    },
-    {
-      "@type": "WebSite",
-      "@id": `${SITE_URL}/#website`,
-      url: `${SITE_URL}/`,
-      name: "Mel McCutcheon",
-      inLanguage: "en-CA",
-      about: { "@id": `${SITE_URL}/#mel` },
-    },
-  ],
-};
+const LOCALITIES = ["Comox Valley", "Courtenay", "Comox", "Campbell River", "Vancouver Island"];
 
-function HomeJsonLd() {
-  return <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(homeJsonLd)} />;
+function homeJsonLd(shows: ShowLike[]) {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": `${SITE_URL}/#mel`,
+        name: MEL.name,
+        url: `${SITE_URL}/`,
+        image: `${SITE_URL}/uploads/hero-mel-singing.jpg`,
+        jobTitle: "Jazz Vocalist",
+        description: PERSON_DESCRIPTION,
+        email: `mailto:${MEL.bookingEmail}`,
+        homeLocation: {
+          "@type": "Place",
+          name: "Comox Valley, Vancouver Island, British Columbia, Canada",
+          address: { "@type": "PostalAddress", addressRegion: "BC", addressCountry: "CA" },
+        },
+        knowsAbout: ["Jazz", "Jazz standards", "Swing", "Blues", "Latin jazz", "Jazz vocals"],
+        memberOf: [{ "@id": `${SITE_URL}/#sharp-seven` }, { "@type": "MusicGroup", name: "Vintage Velvet", genre: "Jazz" }],
+        makesOffer: {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Live jazz for private events",
+            description:
+              "Jazz duo, trio or quartet led by Mel McCutcheon for private events, cocktail receptions, dinners and celebrations.",
+            areaServed: LOCALITIES,
+          },
+        },
+        sameAs: [MEL.instagram, MEL.realEstate],
+      },
+      {
+        "@type": "MusicGroup",
+        "@id": `${SITE_URL}/#sharp-seven`,
+        name: "The Sharp Seven",
+        genre: ["Jazz", "Swing", "Big band"],
+        url: `${SITE_URL}/#ensembles`,
+        description: "Comox Valley jazz ensemble fronted by vocalist Mel McCutcheon.",
+        member: { "@id": `${SITE_URL}/#mel` },
+        foundingLocation: { "@type": "Place", name: "Comox Valley, BC" },
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}/#website`,
+        url: `${SITE_URL}/`,
+        name: "Mel McCutcheon",
+        inLanguage: "en-CA",
+        about: { "@id": `${SITE_URL}/#mel` },
+      },
+      ...showEvents(shows),
+    ],
+  };
+}
+
+function HomeJsonLd({ shows }: { shows?: ShowLike[] | null }) {
+  return <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(homeJsonLd((shows ?? []).filter(Boolean)))} />;
 }
 
 type HomepageResult = Awaited<ReturnType<typeof client.queries.homepage>>;
@@ -69,7 +97,7 @@ export default async function Page() {
   if (!result) {
     return (
       <>
-        <HomeJsonLd />
+        <HomeJsonLd shows={fallbackData.shows.upcoming} />
         <PageStatic data={fallbackData as unknown as HomepageData} />
       </>
     );
@@ -77,7 +105,7 @@ export default async function Page() {
 
   return (
     <>
-      <HomeJsonLd />
+      <HomeJsonLd shows={result.data.homepage.shows?.upcoming as ShowLike[] | null} />
       <PageClient
         query={result.query}
         variables={result.variables}

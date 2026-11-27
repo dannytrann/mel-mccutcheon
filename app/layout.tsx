@@ -10,12 +10,13 @@ const archivo = Archivo({
   style: ["normal", "italic"],
 });
 
+const TITLE = "Mel McCutcheon | Jazz Singer in the Comox Valley, Vancouver Island";
 const DESCRIPTION =
-  "Mel McCutcheon, jazz vocalist on Vancouver Island, BC. Fronting The Sharp Seven, the Mel McCutcheon Ensembles and Vintage Velvet. Shows, bands and bookings.";
+  "Jazz vocalist in the Comox Valley, BC. See Mel McCutcheon live with The Sharp Seven in Courtenay and Campbell River, or book a jazz trio for your event.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Mel McCutcheon | Jazz Vocalist on Vancouver Island",
+  title: TITLE,
   description: DESCRIPTION,
   alternates: { canonical: "/" },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large" } },
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
     locale: "en_CA",
     url: "/",
     siteName: "Mel McCutcheon",
-    title: "Mel McCutcheon | Jazz Vocalist on Vancouver Island",
+    title: TITLE,
     description: DESCRIPTION,
     images: [
       {
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mel McCutcheon | Jazz Vocalist on Vancouver Island",
+    title: TITLE,
     description: DESCRIPTION,
     images: ["/uploads/og-mel-profile-bw.jpg"],
   },
